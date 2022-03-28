@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "Concentrador-Scanntech-Services/1.0.0": {
+        "dependencies": {
+          "Concentrador-Scanntech-Entities": "1.0.0"
+        },
+        "runtime": {
+          "Concentrador-Scanntech-Services.dll": {}
+        }
+      },
+      "Concentrador-Scanntech-Entities/1.0.0": {
+        "runtime": {
+          "Concentrador-Scanntech-Entities.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Concentrador-Scanntech-Services/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Concentrador-Scanntech-Entities/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

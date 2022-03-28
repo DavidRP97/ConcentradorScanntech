@@ -1,0 +1,80 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31919.166
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01 - Presentation", "01 - Presentation", "{E14560CE-BAB5-4730-81DC-5BE846530E96}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02 - Repository", "02 - Repository", "{801B01CD-7566-484A-87D6-104A08CFCE26}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04 - Entities", "04 - Entities", "{7D36DCF6-55A3-40DD-8231-4978DB54BCD7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "05 - Tests", "05 - Tests", "{606FD226-366D-4E24-BCAB-9AD88ECA9AB0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Concentrador-Scanntech-GUI", "Concentrador-Scanntech-GUI\Concentrador-Scanntech-GUI.csproj", "{0DB07818-DD36-452A-AD5F-5848DA8998D2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Concentrador-Scanntech-Repository", "Concentrador-Scanntech-Repository\Concentrador-Scanntech-Repository.csproj", "{7BFB91D5-34E6-4230-B476-14489C59507B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Concentrador-Scanntech-Entities", "Concentrador-Scanntech-Entities\Concentrador-Scanntech-Entities.csproj", "{F19963F0-A694-4559-9ECB-36739C2F6AB5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Concentrador-Scanntech-Tests", "Concentrador-Scanntech-Tests\Concentrador-Scanntech-Tests.csproj", "{C60D7290-F90F-42CB-935C-3ED78E0DEC18}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{922C836E-B035-4B13-B71B-4AE46B686D13}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03 - Services", "03 - Services", "{679FA4CC-DD35-4109-865F-D0101CCE345D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Concentrador-Scanntech-Services", "Concentrador-Scanntech-Services\Concentrador-Scanntech-Services.csproj", "{320E9ED5-25BA-4B75-9A6F-53EB5596F452}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "06 - IoC", "06 - IoC", "{ACB6174E-FF44-4357-A925-0704A75328CB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Concentrador-Scanntech-IoC", "Concentrador-Scanntech-IoC\Concentrador-Scanntech-IoC.csproj", "{5CC9C9B8-9717-4625-A4BB-F9415C2E0B13}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0DB07818-DD36-452A-AD5F-5848DA8998D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DB07818-DD36-452A-AD5F-5848DA8998D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DB07818-DD36-452A-AD5F-5848DA8998D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DB07818-DD36-452A-AD5F-5848DA8998D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BFB91D5-34E6-4230-B476-14489C59507B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BFB91D5-34E6-4230-B476-14489C59507B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BFB91D5-34E6-4230-B476-14489C59507B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BFB91D5-34E6-4230-B476-14489C59507B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F19963F0-A694-4559-9ECB-36739C2F6AB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F19963F0-A694-4559-9ECB-36739C2F6AB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F19963F0-A694-4559-9ECB-36739C2F6AB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F19963F0-A694-4559-9ECB-36739C2F6AB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C60D7290-F90F-42CB-935C-3ED78E0DEC18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C60D7290-F90F-42CB-935C-3ED78E0DEC18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C60D7290-F90F-42CB-935C-3ED78E0DEC18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C60D7290-F90F-42CB-935C-3ED78E0DEC18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{320E9ED5-25BA-4B75-9A6F-53EB5596F452}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{320E9ED5-25BA-4B75-9A6F-53EB5596F452}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{320E9ED5-25BA-4B75-9A6F-53EB5596F452}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{320E9ED5-25BA-4B75-9A6F-53EB5596F452}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CC9C9B8-9717-4625-A4BB-F9415C2E0B13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CC9C9B8-9717-4625-A4BB-F9415C2E0B13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CC9C9B8-9717-4625-A4BB-F9415C2E0B13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CC9C9B8-9717-4625-A4BB-F9415C2E0B13}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0DB07818-DD36-452A-AD5F-5848DA8998D2} = {E14560CE-BAB5-4730-81DC-5BE846530E96}
+		{7BFB91D5-34E6-4230-B476-14489C59507B} = {801B01CD-7566-484A-87D6-104A08CFCE26}
+		{F19963F0-A694-4559-9ECB-36739C2F6AB5} = {7D36DCF6-55A3-40DD-8231-4978DB54BCD7}
+		{C60D7290-F90F-42CB-935C-3ED78E0DEC18} = {606FD226-366D-4E24-BCAB-9AD88ECA9AB0}
+		{320E9ED5-25BA-4B75-9A6F-53EB5596F452} = {679FA4CC-DD35-4109-865F-D0101CCE345D}
+		{5CC9C9B8-9717-4625-A4BB-F9415C2E0B13} = {ACB6174E-FF44-4357-A925-0704A75328CB}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {687BE239-5834-443D-89A7-AA9C1434EAC5}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,46 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "0db07818-dd36-452a-ad5f-5848da8998d2": {
+      "ProjectGuid": "0db07818-dd36-452a-ad5f-5848da8998d2",
+      "DisplayName": "Concentrador-Scanntech-GUI",
+      "ColorIndex": 0
+    },
+    "3626728a-d8be-4d65-8716-fbccbff763b6": {
+      "ProjectGuid": "3626728a-d8be-4d65-8716-fbccbff763b6",
+      "DisplayName": "Concentrador-Scanntech-IoC",
+      "ColorIndex": 1
+    },
+    "f19963f0-a694-4559-9ecb-36739c2f6ab5": {
+      "ProjectGuid": "f19963f0-a694-4559-9ecb-36739c2f6ab5",
+      "DisplayName": "Concentrador-Scanntech-Entities",
+      "ColorIndex": 2
+    },
+    "7bfb91d5-34e6-4230-b476-14489c59507b": {
+      "ProjectGuid": "7bfb91d5-34e6-4230-b476-14489c59507b",
+      "DisplayName": "Concentrador-Scanntech-Repository",
+      "ColorIndex": 3
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Arquivos Diversos",
+      "ColorIndex": -1
+    },
+    "e152f609-2cf3-44f3-a77e-9dc957f14d9b": {
+      "ProjectGuid": "e152f609-2cf3-44f3-a77e-9dc957f14d9b",
+      "DisplayName": "ConcentradorScanntechServices",
+      "ColorIndex": 4
+    },
+    "320e9ed5-25ba-4b75-9a6f-53eb5596f452": {
+      "ProjectGuid": "320e9ed5-25ba-4b75-9a6f-53eb5596f452",
+      "DisplayName": "Concentrador-Scanntech-Services",
+      "ColorIndex": 5
+    },
+    "5cc9c9b8-9717-4625-a4bb-f9415c2e0b13": {
+      "ProjectGuid": "5cc9c9b8-9717-4625-a4bb-f9415c2e0b13",
+      "DisplayName": "Concentrador-Scanntech-IoC",
+      "ColorIndex": 6
+    }
+  },
+  "NextColorIndex": 7
+}

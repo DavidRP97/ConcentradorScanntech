@@ -1,0 +1,15 @@
+C:\blog-david.net\Concentrador-Scanntech\Concentrador-Scanntech-Services\bin\Debug\net6.0\Concentrador-Scanntech-Services.deps.json
+C:\blog-david.net\Concentrador-Scanntech\Concentrador-Scanntech-Services\bin\Debug\net6.0\Concentrador-Scanntech-Services.dll
+C:\blog-david.net\Concentrador-Scanntech\Concentrador-Scanntech-Services\bin\Debug\net6.0\ref\Concentrador-Scanntech-Services.dll
+C:\blog-david.net\Concentrador-Scanntech\Concentrador-Scanntech-Services\bin\Debug\net6.0\Concentrador-Scanntech-Services.pdb
+C:\blog-david.net\Concentrador-Scanntech\Concentrador-Scanntech-Services\bin\Debug\net6.0\Concentrador-Scanntech-Entities.dll
+C:\blog-david.net\Concentrador-Scanntech\Concentrador-Scanntech-Services\bin\Debug\net6.0\Concentrador-Scanntech-Entities.pdb
+C:\blog-david.net\Concentrador-Scanntech\Concentrador-Scanntech-Services\obj\Debug\net6.0\Concentrador-Scanntech-Services.csproj.AssemblyReference.cache
+C:\blog-david.net\Concentrador-Scanntech\Concentrador-Scanntech-Services\obj\Debug\net6.0\Concentrador-Scanntech-Services.GeneratedMSBuildEditorConfig.editorconfig
+C:\blog-david.net\Concentrador-Scanntech\Concentrador-Scanntech-Services\obj\Debug\net6.0\Concentrador-Scanntech-Services.AssemblyInfoInputs.cache
+C:\blog-david.net\Concentrador-Scanntech\Concentrador-Scanntech-Services\obj\Debug\net6.0\Concentrador-Scanntech-Services.AssemblyInfo.cs
+C:\blog-david.net\Concentrador-Scanntech\Concentrador-Scanntech-Services\obj\Debug\net6.0\Concentrador-Scanntech-Services.csproj.CoreCompileInputs.cache
+C:\blog-david.net\Concentrador-Scanntech\Concentrador-Scanntech-Services\obj\Debug\net6.0\Concentrador-Scanntech-Services.csproj.CopyComplete
+C:\blog-david.net\Concentrador-Scanntech\Concentrador-Scanntech-Services\obj\Debug\net6.0\Concentrador-Scanntech-Services.dll
+C:\blog-david.net\Concentrador-Scanntech\Concentrador-Scanntech-Services\obj\Debug\net6.0\ref\Concentrador-Scanntech-Services.dll
+C:\blog-david.net\Concentrador-Scanntech\Concentrador-Scanntech-Services\obj\Debug\net6.0\Concentrador-Scanntech-Services.pdb

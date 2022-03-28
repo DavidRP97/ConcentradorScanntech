@@ -1,0 +1,17 @@
+C:\blog-david.net\Concentrador-Scanntech\Concentrador-Scanntech-Repository\bin\Debug\net6.0\Concentrador-Scanntech-Repository.deps.json
+C:\blog-david.net\Concentrador-Scanntech\Concentrador-Scanntech-Repository\bin\Debug\net6.0\Concentrador-Scanntech-Repository.runtimeconfig.json
+C:\blog-david.net\Concentrador-Scanntech\Concentrador-Scanntech-Repository\bin\Debug\net6.0\Concentrador-Scanntech-Repository.dll
+C:\blog-david.net\Concentrador-Scanntech\Concentrador-Scanntech-Repository\bin\Debug\net6.0\ref\Concentrador-Scanntech-Repository.dll
+C:\blog-david.net\Concentrador-Scanntech\Concentrador-Scanntech-Repository\bin\Debug\net6.0\Concentrador-Scanntech-Repository.pdb
+C:\blog-david.net\Concentrador-Scanntech\Concentrador-Scanntech-Repository\bin\Debug\net6.0\Concentrador-Scanntech-Entities.dll
+C:\blog-david.net\Concentrador-Scanntech\Concentrador-Scanntech-Repository\bin\Debug\net6.0\Concentrador-Scanntech-Entities.pdb
+C:\blog-david.net\Concentrador-Scanntech\Concentrador-Scanntech-Repository\obj\Debug\net6.0\Concentrador-Scanntech-Repository.csproj.AssemblyReference.cache
+C:\blog-david.net\Concentrador-Scanntech\Concentrador-Scanntech-Repository\obj\Debug\net6.0\Concentrador-Scanntech-Repository.GeneratedMSBuildEditorConfig.editorconfig
+C:\blog-david.net\Concentrador-Scanntech\Concentrador-Scanntech-Repository\obj\Debug\net6.0\Concentrador-Scanntech-Repository.AssemblyInfoInputs.cache
+C:\blog-david.net\Concentrador-Scanntech\Concentrador-Scanntech-Repository\obj\Debug\net6.0\Concentrador-Scanntech-Repository.AssemblyInfo.cs
+C:\blog-david.net\Concentrador-Scanntech\Concentrador-Scanntech-Repository\obj\Debug\net6.0\Concentrador-Scanntech-Repository.csproj.CoreCompileInputs.cache
+C:\blog-david.net\Concentrador-Scanntech\Concentrador-Scanntech-Repository\obj\Debug\net6.0\Concentrador-Scanntech-Repository.csproj.CopyComplete
+C:\blog-david.net\Concentrador-Scanntech\Concentrador-Scanntech-Repository\obj\Debug\net6.0\Concentrador-Scanntech-Repository.dll
+C:\blog-david.net\Concentrador-Scanntech\Concentrador-Scanntech-Repository\obj\Debug\net6.0\ref\Concentrador-Scanntech-Repository.dll
+C:\blog-david.net\Concentrador-Scanntech\Concentrador-Scanntech-Repository\obj\Debug\net6.0\Concentrador-Scanntech-Repository.pdb
+C:\blog-david.net\Concentrador-Scanntech\Concentrador-Scanntech-Repository\obj\Debug\net6.0\Concentrador-Scanntech-Repository.genruntimeconfig.cache
