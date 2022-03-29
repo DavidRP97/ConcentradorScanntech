@@ -1,11 +1,22 @@
-﻿namespace Concentrador_Scanntech_Entities.Dtos.Promocoes
+﻿using System.Text.Json.Serialization;
+
+namespace Concentrador_Scanntech_Entities.Dtos.Promocoes
 {
     public class DetallesDto
     {
-        public virtual CondicionesDto condiciones { get; set; }
-        public virtual BeneficiosDto beneficios { get; set; }
-        public decimal? precio { get; set; }
-        public decimal? descuento { get; set; }
-        public int? paga { get; set; }
+        [JsonPropertyName("condiciones")]
+        public virtual CondicionesDto CondicaoScanntech { get; set; }
+
+        [JsonPropertyName("beneficios")]
+        public virtual BeneficiosDto BeneficioScanntech { get; set; }
+
+        [JsonPropertyName("precio")]
+        public decimal? PrecoValorFixo { get; set; }
+
+        [JsonPropertyName("descuento")]
+        public decimal? Desconto { get; set; }
+
+        [JsonPropertyName("paga")]
+        public int? QuantidadeItensLevaEPaga { get; set; }
     }
 }

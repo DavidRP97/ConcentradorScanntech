@@ -87,7 +87,6 @@ C:\blog-david.net\Concentrador-Scanntech\Concentrador-Scanntech-Tests\bin\Debug\
 C:\blog-david.net\Concentrador-Scanntech\Concentrador-Scanntech-Tests\bin\Debug\net6.0\zh-Hant\Microsoft.TestPlatform.CommunicationUtilities.resources.dll
 C:\blog-david.net\Concentrador-Scanntech\Concentrador-Scanntech-Tests\bin\Debug\net6.0\zh-Hant\Microsoft.TestPlatform.CrossPlatEngine.resources.dll
 C:\blog-david.net\Concentrador-Scanntech\Concentrador-Scanntech-Tests\bin\Debug\net6.0\zh-Hant\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
-C:\blog-david.net\Concentrador-Scanntech\Concentrador-Scanntech-Tests\obj\Debug\net6.0\Concentrador-Scanntech-Tests.csproj.AssemblyReference.cache
 C:\blog-david.net\Concentrador-Scanntech\Concentrador-Scanntech-Tests\obj\Debug\net6.0\Concentrador-Scanntech-Tests.GeneratedMSBuildEditorConfig.editorconfig
 C:\blog-david.net\Concentrador-Scanntech\Concentrador-Scanntech-Tests\obj\Debug\net6.0\Concentrador-Scanntech-Tests.AssemblyInfoInputs.cache
 C:\blog-david.net\Concentrador-Scanntech\Concentrador-Scanntech-Tests\obj\Debug\net6.0\Concentrador-Scanntech-Tests.AssemblyInfo.cs

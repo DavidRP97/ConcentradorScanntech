@@ -1,4 +1,6 @@
 using AutoMapper;
+using Concentrador_Scanntech_Entities.Dtos.Promocoes;
+using Concentrador_Scanntech_Entities.Model.Promocoes;
 using Concentrador_Scanntech_GUI.Configuracoes;
 using Concentrador_Scanntech_GUI.Main;
 using Concentrador_Scanntech_GUI.Sincronizador;
@@ -45,9 +47,11 @@ namespace Concentrador_Scanntech_GUI
         {
             IMapper mapper = ResolverMapeamento().CreateMapper();
 
-            service.AddScoped<IUnitOfWork, UnitOfWork>().AddDbContext<MySqlDbContext>().AddSingleton(mapper);
+            service.AddScoped<IUnitOfWork, UnitOfWork>().AddDbContext<MySqlDbContext>();
+            service.AddSingleton(mapper);
+            service.AddSingleton<HttpClient>();
             service.AddScoped<FrmMain>();
-            service.AddScoped<IObterPromocoesService, ObterPromocoesService>().AddSingleton<HttpClient>();
+            service.AddScoped<IObterPromocoesService, ObterPromocoesService>();
             service.AddTransient<FrmConfigurarBancoDeDados>();
             service.AddTransient<FrmDefinicoesScanntech>();
             service.AddTransient<FrmSincronizador>();
@@ -56,7 +60,29 @@ namespace Concentrador_Scanntech_GUI
         {
             var mappingConfig = new MapperConfiguration(config =>
             {
+                config.CreateMap<BeneficioArticuloDto, BeneficioArtigoScanntech>();
+                config.CreateMap<BeneficioArtigoScanntech, BeneficioArticuloDto>();
 
+                config.CreateMap<CondicaoArticuloDto, CondicaoArtigoScanntech>();
+                config.CreateMap<CondicaoArtigoScanntech, CondicaoArticuloDto>();
+
+                config.CreateMap<ResultDto, PromocaoScanntech>();
+                config.CreateMap<PromocaoScanntech, ResultDto>();
+
+                config.CreateMap<DetallesDto, DetalhesPromocaoScanntech>();
+                config.CreateMap<DetalhesPromocaoScanntech, DetallesDto>();
+
+                config.CreateMap<CondicionesDto, CondicaoScanntech>();
+                config.CreateMap<CondicaoScanntech, CondicionesDto>();
+
+                config.CreateMap<BeneficiosDto, BeneficioScanntech>();
+                config.CreateMap<BeneficioScanntech, BeneficiosDto>();
+
+                config.CreateMap<BeneficioItemDto, BeneficioItemScanntech>();
+                config.CreateMap<BeneficioItemScanntech, BeneficioItemDto>();
+
+                config.CreateMap<CondicaoItemDto, CondicaoItemScanntech>();
+                config.CreateMap<CondicaoItemScanntech, CondicaoItemDto>();
             });
 
             return mappingConfig;

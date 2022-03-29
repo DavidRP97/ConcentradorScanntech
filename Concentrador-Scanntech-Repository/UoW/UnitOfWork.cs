@@ -11,7 +11,8 @@ namespace Concentrador_Scanntech_Repository.UoW
         private readonly MySqlDbContext _context;
         private readonly IMapper _mapper;
         private IDefinicoesRepository definicoesRepository;
-        private IStatusBancoRepository statusBancoRepository;   
+        private IStatusBancoRepository statusBancoRepository;
+        private IPromocoesRepository promocoesRepository;
 
         public UnitOfWork(MySqlDbContext context, IMapper mapper)
         {
@@ -40,6 +41,18 @@ namespace Concentrador_Scanntech_Repository.UoW
                     statusBancoRepository = new StatusBancoRepository(_context, _mapper);
                 }
                 return statusBancoRepository;
+            }
+        }
+
+        public IPromocoesRepository PromocoesRepository
+        {
+            get
+            {
+                if(promocoesRepository == null)
+                {
+                    promocoesRepository = new PromocoesRepository(_context, _mapper);
+                }
+                return promocoesRepository;
             }
         }
     }

@@ -1,14 +1,34 @@
-﻿namespace Concentrador_Scanntech_Entities.Dtos.Promocoes
+﻿using System.Text.Json.Serialization;
+
+namespace Concentrador_Scanntech_Entities.Dtos.Promocoes
 {
     public class ResultDto
     {
-        public int id { get; set; }
-        public string titulo { get; set; }
-        public string descripcion { get; set; }
-        public string tipo { get; set; }
-        public DetallesDto detalles { get; set; }
-        public AutorDto autor { get; set; }
-        public string vigenciaDesde { get; set; }
-        public string vigenciaHasta { get; set; }  
+        [JsonPropertyName("id")]
+        public int ApiId { get; set; }
+
+        [JsonPropertyName("titulo")]
+        public string Titulo { get; set; }
+
+        [JsonPropertyName("descripcion")]
+        public string Descricao { get; set; }
+
+        [JsonPropertyName("tipo")]
+        public string TipoPromocao { get; set; }
+
+        [JsonPropertyName("detalles")]
+        public DetallesDto DetalhePromocaoScanntech { get; set; }
+
+        [JsonPropertyName("autor")]
+        public AutorDto Autor { get; set; }
+
+        [JsonPropertyName("vigenciaDesde")]
+        public string VigenciaDe { get; set; }
+
+        [JsonPropertyName("vigenciaHasta")]
+        public string VigenciaAte { get; set; }
+
+        [JsonPropertyName("limitePromocionesPorTicket")]
+        public int? LimiteDePromocoesPorTicket { get; set; }
     }
 }

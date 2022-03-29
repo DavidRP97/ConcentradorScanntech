@@ -36,7 +36,6 @@
             this.baixarPromoçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buscarFechamentosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.enviarVendasScanntechToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.enviarPromoçõesPDVToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.enviarFechamentosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button2 = new System.Windows.Forms.Button();
@@ -55,8 +54,6 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.lblPromocoesBaixadas = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblPromocoesAtivas = new System.Windows.Forms.ToolStripStatusLabel();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.gridFechamentosPendentes = new System.Windows.Forms.DataGridView();
@@ -88,7 +85,6 @@
             this.baixarPromoçõesToolStripMenuItem,
             this.buscarFechamentosToolStripMenuItem,
             this.enviarVendasScanntechToolStripMenuItem,
-            this.enviarPromoçõesPDVToolStripMenuItem,
             this.enviarFechamentosToolStripMenuItem});
             this.açõesToolStripMenuItem.Name = "açõesToolStripMenuItem";
             this.açõesToolStripMenuItem.Size = new System.Drawing.Size(51, 20);
@@ -100,6 +96,7 @@
             this.buscarVendasPDVToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F6;
             this.buscarVendasPDVToolStripMenuItem.Size = new System.Drawing.Size(250, 22);
             this.buscarVendasPDVToolStripMenuItem.Text = "Buscar Vendas PDV";
+            this.buscarVendasPDVToolStripMenuItem.Click += new System.EventHandler(this.buscarVendasPDVToolStripMenuItem_Click);
             // 
             // baixarPromoçõesToolStripMenuItem
             // 
@@ -115,6 +112,7 @@
             this.buscarFechamentosToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F8;
             this.buscarFechamentosToolStripMenuItem.Size = new System.Drawing.Size(250, 22);
             this.buscarFechamentosToolStripMenuItem.Text = "Buscar Fechamentos";
+            this.buscarFechamentosToolStripMenuItem.Click += new System.EventHandler(this.buscarFechamentosToolStripMenuItem_Click);
             // 
             // enviarVendasScanntechToolStripMenuItem
             // 
@@ -122,20 +120,15 @@
             this.enviarVendasScanntechToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F6)));
             this.enviarVendasScanntechToolStripMenuItem.Size = new System.Drawing.Size(250, 22);
             this.enviarVendasScanntechToolStripMenuItem.Text = "Enviar Vendas Scanntech";
-            // 
-            // enviarPromoçõesPDVToolStripMenuItem
-            // 
-            this.enviarPromoçõesPDVToolStripMenuItem.Name = "enviarPromoçõesPDVToolStripMenuItem";
-            this.enviarPromoçõesPDVToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F7)));
-            this.enviarPromoçõesPDVToolStripMenuItem.Size = new System.Drawing.Size(250, 22);
-            this.enviarPromoçõesPDVToolStripMenuItem.Text = "Enviar Promoções PDV ";
+            this.enviarVendasScanntechToolStripMenuItem.Click += new System.EventHandler(this.enviarVendasScanntechToolStripMenuItem_Click);
             // 
             // enviarFechamentosToolStripMenuItem
             // 
             this.enviarFechamentosToolStripMenuItem.Name = "enviarFechamentosToolStripMenuItem";
-            this.enviarFechamentosToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F8)));
+            this.enviarFechamentosToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F7)));
             this.enviarFechamentosToolStripMenuItem.Size = new System.Drawing.Size(250, 22);
             this.enviarFechamentosToolStripMenuItem.Text = "Enviar Fechamentos";
+            this.enviarFechamentosToolStripMenuItem.Click += new System.EventHandler(this.enviarFechamentosToolStripMenuItem_Click);
             // 
             // groupBox1
             // 
@@ -286,8 +279,6 @@
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lblStatus,
             this.toolStripStatusLabel1,
-            this.lblPromocoesBaixadas,
-            this.toolStripStatusLabel3,
             this.lblPromocoesAtivas});
             this.statusStrip1.Location = new System.Drawing.Point(0, 422);
             this.statusStrip1.Name = "statusStrip1";
@@ -306,18 +297,6 @@
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(10, 17);
             this.toolStripStatusLabel1.Text = "|";
-            // 
-            // lblPromocoesBaixadas
-            // 
-            this.lblPromocoesBaixadas.Name = "lblPromocoesBaixadas";
-            this.lblPromocoesBaixadas.Size = new System.Drawing.Size(226, 17);
-            this.lblPromocoesBaixadas.Text = "Promoções pendentes de envio ao PDV: 0";
-            // 
-            // toolStripStatusLabel3
-            // 
-            this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
-            this.toolStripStatusLabel3.Size = new System.Drawing.Size(10, 17);
-            this.toolStripStatusLabel3.Text = "|";
             // 
             // lblPromocoesAtivas
             // 
@@ -385,7 +364,6 @@
         private MenuStrip menuStrip1;
         private ToolStripMenuItem açõesToolStripMenuItem;
         private ToolStripMenuItem baixarPromoçõesToolStripMenuItem;
-        private ToolStripMenuItem enviarPromoçõesPDVToolStripMenuItem;
         private ToolStripMenuItem buscarVendasPDVToolStripMenuItem;
         private ToolStripMenuItem buscarFechamentosToolStripMenuItem;
         private ToolStripMenuItem enviarVendasScanntechToolStripMenuItem;
@@ -409,8 +387,6 @@
         private GroupBox groupBox5;
         private DataGridView gridFechamentosPendentes;
         private ToolStripStatusLabel toolStripStatusLabel1;
-        private ToolStripStatusLabel lblPromocoesBaixadas;
-        private ToolStripStatusLabel toolStripStatusLabel3;
         private ToolStripStatusLabel lblPromocoesAtivas;
     }
 }

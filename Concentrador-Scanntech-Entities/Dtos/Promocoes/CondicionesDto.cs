@@ -1,7 +1,10 @@
-﻿namespace Concentrador_Scanntech_Entities.Dtos.Promocoes
+﻿using System.Text.Json.Serialization;
+
+namespace Concentrador_Scanntech_Entities.Dtos.Promocoes
 {
     public class CondicionesDto
     {
-        public List<ItemDto> items { get; set; }
+        [JsonPropertyName("items")]
+        public List<CondicaoItemDto> CondicoesItens { get; set; }
     }
 }

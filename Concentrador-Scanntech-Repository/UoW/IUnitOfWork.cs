@@ -8,5 +8,6 @@ namespace Concentrador_Scanntech_Repository.UoW
     {
         IDefinicoesRepository DefinicoesRepository { get; }
         IStatusBancoRepository StatusBancoRepository { get; }
+        IPromocoesRepository PromocoesRepository { get; }   
     }
 }
