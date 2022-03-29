@@ -1,5 +1,6 @@
 ﻿using Concentrador_Scanntech_GUI.Utils;
 using Concentrador_Scanntech_Repository.UoW;
+using Concentrador_Scanntech_Services.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,12 +16,15 @@ namespace Concentrador_Scanntech_GUI.Sincronizador
     public partial class FrmSincronizador : Form
     {
         private readonly IUnitOfWork _uow;
+        private readonly IObterPromocoesService _obterPromocoes;
         private int SincronizacaoPromocoes { get; set; }
         private int SincronizacaoVendas { get; set; }
         private int SincronizacaoManual { get; set; }
         private bool PrimeiroLoad { get; set; }
-        public FrmSincronizador(IUnitOfWork uow)
+        
+        public FrmSincronizador(IUnitOfWork uow, IObterPromocoesService obterPromocoes)
         {
+            _obterPromocoes = obterPromocoes;   
             _uow = uow;
             InitializeComponent();
             Load += FrmSincronizador_Load;
@@ -32,8 +36,7 @@ namespace Concentrador_Scanntech_GUI.Sincronizador
             {
                 timer1.Start();
                 
-                var definicoes = await _uow.DefinicoesRepository.ObterTodos();
-                var definicao = definicoes.FirstOrDefault();
+                var definicao = await _uow.DefinicoesRepository.ObterDefinicao();
 
                 if (definicao != null)
                 {
@@ -42,7 +45,7 @@ namespace Concentrador_Scanntech_GUI.Sincronizador
                     SincronizacaoManual = definicao.SincronizacaoManual;
                     PrimeiroLoad = true;
                 }
-
+                
                 lblMinutosPromocoes.Text = SincronizacaoPromocoes.ToString();   
                 lblMinutosVendas.Text = SincronizacaoVendas.ToString(); 
             }
@@ -97,6 +100,42 @@ namespace Concentrador_Scanntech_GUI.Sincronizador
         private async void BaixaVendasDoPdv()
         {
             lblStatus.Text = Status.BuscandoVendasPdv;
+        }
+
+        private async void BaixarPromocoesScanntech()
+        {
+            try
+            {
+                var definicao = await _uow.DefinicoesRepository.ObterDefinicao();
+
+                foreach (var item in definicao.uRLs)
+                {
+                    var response = await _obterPromocoes.ObterPromocoesScanntech(definicao, item.UrlConnection);
+                    if (response != null)
+                    {
+                        lblPromocoesBaixadas.Text = $"Promoções pendentes de envio ao PDV: {response.total}";
+                        break;
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void baixarPromoçõesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                BaixarPromocoesScanntech();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

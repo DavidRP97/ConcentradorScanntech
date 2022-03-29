@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Concentrador_Scanntech_Entities.Utils.Enums;
 
 namespace Concentrador_Scanntech_GUI.Configuracoes
 {
@@ -26,6 +27,8 @@ namespace Concentrador_Scanntech_GUI.Configuracoes
         {
             try
             {
+                var status = Enum.GetValues(typeof(StateEnums)).Cast<StateEnums>().ToList();
+                cmbStatus.DataSource = status;
                 CarregarTextBox();
             }
             catch (Exception)
@@ -55,6 +58,7 @@ namespace Concentrador_Scanntech_GUI.Configuracoes
                     numPromo.Value = definicao.SincronizacaoPromocoes;
                     numVendas.Value = definicao.SincronizacaoVendas;
                     numManual.Value = definicao.SincronizacaoManual;
+                    cmbStatus.SelectedIndex = (int)definicao.EstadoDaPromocao;
 
                     var flag = 0;
 
@@ -105,6 +109,7 @@ namespace Concentrador_Scanntech_GUI.Configuracoes
                 definicao.SincronizacaoPromocoes = Convert.ToInt32(numPromo.Value);
                 definicao.SincronizacaoVendas = Convert.ToInt32(numVendas.Value);
                 definicao.SincronizacaoManual = Convert.ToInt32(numManual.Value);
+                definicao.EstadoDaPromocao = (StateEnums)cmbStatus.SelectedValue;
 
                 urls.Add(new URL { UrlConnection = txtUrl1.Text });
                 urls.Add(new URL { UrlConnection = txtUrl2.Text });
@@ -120,7 +125,7 @@ namespace Concentrador_Scanntech_GUI.Configuracoes
                     MessageBox.Show("Falha ao salvar as informações", "Falha", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
-                {
+                {                    
                     MessageBox.Show("Alterações salvas com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 

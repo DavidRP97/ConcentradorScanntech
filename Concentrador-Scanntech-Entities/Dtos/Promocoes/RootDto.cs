@@ -2,7 +2,7 @@
 {
     public class RootDto
     {
-        public string total { get; set; }
+        public int total { get; set; }
         public List<ResultDto> results { get; set; }
     }
 }

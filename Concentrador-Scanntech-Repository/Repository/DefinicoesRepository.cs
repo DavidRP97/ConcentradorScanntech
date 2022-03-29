@@ -23,9 +23,10 @@ namespace Concentrador_Scanntech_Repository.Repository
             if(definicaoCadastrada.Count() > 0)
             {
                 var pegarDefinicao = definicaoCadastrada.FirstOrDefault();
-                definicoes.Id = pegarDefinicao.Id;
 
-                var definir = _context.DefinicoesScanntech.Update(definicoes);
+                await Excluir(pegarDefinicao.Id);
+
+                var definir = await _context.DefinicoesScanntech.AddAsync(definicoes);
                 await Save();
                 if(definir != null) { return true; }
 
@@ -39,6 +40,13 @@ namespace Concentrador_Scanntech_Repository.Repository
                 return false;
                 
             }
+        }
+
+        public async Task<DefinicoesScanntech> ObterDefinicao()
+        {
+            var definicoes = await _context.DefinicoesScanntech.Include(x => x.uRLs).FirstOrDefaultAsync();
+
+            return definicoes;
         }
 
         public async Task<IEnumerable<DefinicoesScanntech>> ObterTodosInclusoUrl()

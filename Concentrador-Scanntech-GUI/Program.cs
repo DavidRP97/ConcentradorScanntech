@@ -6,6 +6,8 @@ using Concentrador_Scanntech_Repository.Context;
 using Concentrador_Scanntech_Repository.Interfaces;
 using Concentrador_Scanntech_Repository.Repository;
 using Concentrador_Scanntech_Repository.UoW;
+using Concentrador_Scanntech_Services.Interfaces;
+using Concentrador_Scanntech_Services.Services;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Concentrador_Scanntech_GUI
@@ -45,6 +47,7 @@ namespace Concentrador_Scanntech_GUI
 
             service.AddScoped<IUnitOfWork, UnitOfWork>().AddDbContext<MySqlDbContext>().AddSingleton(mapper);
             service.AddScoped<FrmMain>();
+            service.AddScoped<IObterPromocoesService, ObterPromocoesService>().AddSingleton<HttpClient>();
             service.AddTransient<FrmConfigurarBancoDeDados>();
             service.AddTransient<FrmDefinicoesScanntech>();
             service.AddTransient<FrmSincronizador>();

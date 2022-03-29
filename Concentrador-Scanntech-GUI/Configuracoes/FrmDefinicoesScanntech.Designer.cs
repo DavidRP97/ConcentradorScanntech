@@ -45,6 +45,8 @@
             this.txtIdLocal = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.cmbStatus = new System.Windows.Forms.ComboBox();
             this.numManual = new System.Windows.Forms.NumericUpDown();
             this.numVendas = new System.Windows.Forms.NumericUpDown();
             this.numPromo = new System.Windows.Forms.NumericUpDown();
@@ -220,6 +222,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label17);
+            this.groupBox2.Controls.Add(this.cmbStatus);
             this.groupBox2.Controls.Add(this.numManual);
             this.groupBox2.Controls.Add(this.numVendas);
             this.groupBox2.Controls.Add(this.numPromo);
@@ -235,6 +239,24 @@
             this.groupBox2.TabIndex = 15;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Sincronização(*informar período em minutos)";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(14, 150);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(100, 15);
+            this.label17.TabIndex = 14;
+            this.label17.Text = "Status Promoção:";
+            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // cmbStatus
+            // 
+            this.cmbStatus.FormattingEnabled = true;
+            this.cmbStatus.Location = new System.Drawing.Point(123, 142);
+            this.cmbStatus.Name = "cmbStatus";
+            this.cmbStatus.Size = new System.Drawing.Size(100, 23);
+            this.cmbStatus.TabIndex = 21;
             // 
             // numManual
             // 
@@ -523,5 +545,7 @@
         private NumericUpDown numManual;
         private NumericUpDown numVendas;
         private NumericUpDown numPromo;
+        private Label label17;
+        private ComboBox cmbStatus;
     }
 }

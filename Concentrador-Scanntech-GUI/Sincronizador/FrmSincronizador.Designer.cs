@@ -107,6 +107,7 @@
             this.baixarPromoçõesToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F7;
             this.baixarPromoçõesToolStripMenuItem.Size = new System.Drawing.Size(250, 22);
             this.baixarPromoçõesToolStripMenuItem.Text = "Baixar Promoções";
+            this.baixarPromoçõesToolStripMenuItem.Click += new System.EventHandler(this.baixarPromoçõesToolStripMenuItem_Click);
             // 
             // buscarFechamentosToolStripMenuItem
             // 
@@ -297,8 +298,8 @@
             // lblStatus
             // 
             this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(42, 17);
-            this.lblStatus.Text = "Status:";
+            this.lblStatus.Size = new System.Drawing.Size(115, 17);
+            this.lblStatus.Text = "Status: Em execução";
             // 
             // toolStripStatusLabel1
             // 
@@ -309,8 +310,8 @@
             // lblPromocoesBaixadas
             // 
             this.lblPromocoesBaixadas.Name = "lblPromocoesBaixadas";
-            this.lblPromocoesBaixadas.Size = new System.Drawing.Size(119, 17);
-            this.lblPromocoesBaixadas.Text = "Promoções baixadas:";
+            this.lblPromocoesBaixadas.Size = new System.Drawing.Size(226, 17);
+            this.lblPromocoesBaixadas.Text = "Promoções pendentes de envio ao PDV: 0";
             // 
             // toolStripStatusLabel3
             // 
@@ -321,8 +322,8 @@
             // lblPromocoesAtivas
             // 
             this.lblPromocoesAtivas.Name = "lblPromocoesAtivas";
-            this.lblPromocoesAtivas.Size = new System.Drawing.Size(128, 17);
-            this.lblPromocoesAtivas.Text = "Promoções ativas PDV:";
+            this.lblPromocoesAtivas.Size = new System.Drawing.Size(169, 17);
+            this.lblPromocoesAtivas.Text = "Promoções enviadas ao PDV: 0";
             // 
             // groupBox5
             // 
@@ -362,7 +363,6 @@
             this.Name = "FrmSincronizador";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sincronizador";
-            this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);

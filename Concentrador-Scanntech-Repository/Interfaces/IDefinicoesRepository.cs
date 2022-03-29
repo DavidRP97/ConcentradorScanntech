@@ -6,5 +6,6 @@ namespace Concentrador_Scanntech_Repository.Interfaces
     {
         Task<bool> AddOrUpdate(DefinicoesScanntech definicoes);
         Task<IEnumerable<DefinicoesScanntech>> ObterTodosInclusoUrl();
+        Task<DefinicoesScanntech> ObterDefinicao();
     }
 }
