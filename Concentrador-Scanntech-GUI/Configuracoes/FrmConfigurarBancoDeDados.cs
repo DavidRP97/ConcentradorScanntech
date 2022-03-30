@@ -40,6 +40,7 @@ namespace Concentrador_Scanntech_GUI.Configuracoes
                         txtBanco.Text = itens.NomeDoBanco;
                         txtUsuario.Text = itens.Usuario;
                         txtSenha.Text = itens.Senha;
+                        cmbBanco.SelectedItem = itens.BancoDeDados;
                     }
                 }
             }
@@ -59,13 +60,14 @@ namespace Concentrador_Scanntech_GUI.Configuracoes
                 Porta = numPorta.Value.ToString(),
                 NomeDoBanco = txtBanco.Text,
                 Usuario = txtUsuario.Text,
-                Senha = txtSenha.Text
+                Senha = txtSenha.Text,
+                BancoDeDados = cmbBanco.SelectedItem.ToString(),
             };
             try
             {
                 StringDeConexao.GerarTxt(montarString);
 
-                DbContextMigration.EfMigration(new MySqlDbContext());
+                DbContextMigration.EfMigration(new AppDbContext());
 
                 Application.Restart();
 
@@ -73,7 +75,7 @@ namespace Concentrador_Scanntech_GUI.Configuracoes
             catch
             {
 
-                MessageBox.Show($"String de conexão inválida\n", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"String de conexão inválida\nEncerrando aplicação", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

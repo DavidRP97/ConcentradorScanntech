@@ -3,6 +3,7 @@ using Concentrador_Scanntech_Entities.Dtos.Promocoes;
 using Concentrador_Scanntech_Entities.Model.Promocoes;
 using Concentrador_Scanntech_GUI.Configuracoes;
 using Concentrador_Scanntech_GUI.Main;
+using Concentrador_Scanntech_GUI.Promocoes;
 using Concentrador_Scanntech_GUI.Sincronizador;
 using Concentrador_Scanntech_Repository.Context;
 using Concentrador_Scanntech_Repository.Interfaces;
@@ -33,7 +34,7 @@ namespace Concentrador_Scanntech_GUI
 
             try
             {
-                DbContextMigration.EfMigration(new MySqlDbContext());
+                DbContextMigration.EfMigration(new AppDbContext());
                 var frm = serviceProvider.GetRequiredService<FrmMain>();
                 Application.Run(frm);
             }
@@ -46,8 +47,7 @@ namespace Concentrador_Scanntech_GUI
         private static void Resolver(ServiceCollection service)
         {
             IMapper mapper = ResolverMapeamento().CreateMapper();
-
-            service.AddScoped<IUnitOfWork, UnitOfWork>().AddDbContext<MySqlDbContext>();
+            service.AddScoped<IUnitOfWork, UnitOfWork>().AddDbContext<AppDbContext>(); 
             service.AddSingleton(mapper);
             service.AddSingleton<HttpClient>();
             service.AddScoped<FrmMain>();
@@ -55,6 +55,7 @@ namespace Concentrador_Scanntech_GUI
             service.AddTransient<FrmConfigurarBancoDeDados>();
             service.AddTransient<FrmDefinicoesScanntech>();
             service.AddTransient<FrmSincronizador>();
+            service.AddTransient<FrmPromocoesAtivasPdv>();
         }
         private static MapperConfiguration ResolverMapeamento()
         {

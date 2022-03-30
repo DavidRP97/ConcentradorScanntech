@@ -242,6 +242,33 @@
           "lib/net6.0/MySqlConnector.dll": {}
         }
       },
+      "Npgsql/6.0.1": {
+        "type": "package",
+        "dependencies": {
+          "System.Runtime.CompilerServices.Unsafe": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0/Npgsql.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/Npgsql.dll": {}
+        }
+      },
+      "Npgsql.EntityFrameworkCore.PostgreSQL/6.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "6.0.0",
+          "Microsoft.EntityFrameworkCore.Abstractions": "6.0.0",
+          "Microsoft.EntityFrameworkCore.Relational": "6.0.0",
+          "Npgsql": "6.0.1"
+        },
+        "compile": {
+          "lib/net6.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll": {}
+        }
+      },
       "Pomelo.EntityFrameworkCore.MySql/6.0.1": {
         "type": "package",
         "dependencies": {
@@ -314,6 +341,7 @@
         "dependencies": {
           "AutoMapper": "11.0.1",
           "Concentrador-Scanntech-Entities": "1.0.0",
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "6.0.1",
           "Pomelo.EntityFrameworkCore.MySql": "6.0.1"
         },
         "compile": {
@@ -789,6 +817,43 @@
         "mysqlconnector.nuspec"
       ]
     },
+    "Npgsql/6.0.1": {
+      "sha512": "T0v1fSBzcQaJoa6kHGiYYi/vwTJ5VYd8DDjCxW1jazAuO2Ak1KVWMkEcQxxz/C+H/+QteJRMi/xAVHzv1kKSgg==",
+      "type": "package",
+      "path": "npgsql/6.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/net5.0/Npgsql.dll",
+        "lib/net5.0/Npgsql.xml",
+        "lib/net6.0/Npgsql.dll",
+        "lib/net6.0/Npgsql.xml",
+        "lib/netcoreapp3.1/Npgsql.dll",
+        "lib/netcoreapp3.1/Npgsql.xml",
+        "lib/netstandard2.0/Npgsql.dll",
+        "lib/netstandard2.0/Npgsql.xml",
+        "lib/netstandard2.1/Npgsql.dll",
+        "lib/netstandard2.1/Npgsql.xml",
+        "npgsql.6.0.1.nupkg.sha512",
+        "npgsql.nuspec",
+        "postgresql.png"
+      ]
+    },
+    "Npgsql.EntityFrameworkCore.PostgreSQL/6.0.1": {
+      "sha512": "RosOHLphFZ5wIuqPct0IvCH4BrHB61ksW5WpywnWgdesNWvXKjhN+LJRwyGoZt9R1t4NCZhxHRePKgTHr94PJw==",
+      "type": "package",
+      "path": "npgsql.entityframeworkcore.postgresql/6.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/net6.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll",
+        "npgsql.entityframeworkcore.postgresql.6.0.1.nupkg.sha512",
+        "npgsql.entityframeworkcore.postgresql.nuspec",
+        "postgresql.png"
+      ]
+    },
     "Pomelo.EntityFrameworkCore.MySql/6.0.1": {
       "sha512": "sFIo5e9RmQoCTEvH6EeSV8ptmX3dw/6XgyD8R93X/i7A9+XCeG9KTjSNjrszVjVOtCu/eyvYqqcv2uZ/BHhlYA==",
       "type": "package",
@@ -894,6 +959,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0-windows7.0": [
+      "Concentrador-Scanntech-Entities >= 1.0.0",
       "Concentrador-Scanntech-Repository >= 1.0.0",
       "Concentrador-Scanntech-Services >= 1.0.0",
       "Microsoft.EntityFrameworkCore.Design >= 6.0.1",
@@ -934,6 +1000,9 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "projectReferences": {
+            "C:\\blog-david.net\\Concentrador-Scanntech\\Concentrador-Scanntech-Entities\\Concentrador-Scanntech-Entities.csproj": {
+              "projectPath": "C:\\blog-david.net\\Concentrador-Scanntech\\Concentrador-Scanntech-Entities\\Concentrador-Scanntech-Entities.csproj"
+            },
             "C:\\blog-david.net\\Concentrador-Scanntech\\Concentrador-Scanntech-Repository\\Concentrador-Scanntech-Repository.csproj": {
               "projectPath": "C:\\blog-david.net\\Concentrador-Scanntech\\Concentrador-Scanntech-Repository\\Concentrador-Scanntech-Repository.csproj"
             },

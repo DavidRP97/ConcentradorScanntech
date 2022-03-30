@@ -4,20 +4,23 @@ using Concentrador_Scanntech_Repository.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
 namespace Concentrador_Scanntech_Repository.Migrations
 {
-    [DbContext(typeof(MySqlDbContext))]
-    partial class MySqlDbContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(AppDbContext))]
+    partial class AppDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "6.0.1")
-                .HasAnnotation("Relational:MaxIdentifierLength", 64);
+                .HasAnnotation("Relational:MaxIdentifierLength", 63);
+
+            NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
             modelBuilder.Entity("Concentrador_Scanntech_Entities.Model.Definicoes.DefinicoesScanntech", b =>
                 {
@@ -25,41 +28,43 @@ namespace Concentrador_Scanntech_Repository.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint");
 
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
+
                     b.Property<DateTime>("DataDeIntegração")
-                        .HasColumnType("datetime(6)");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<int>("EstadoDaPromocao")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<string>("HorarioDeEnvioFechamento")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasColumnType("text");
 
                     b.Property<int>("IdCompanhia")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<int>("IdLocal")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<int>("QuantidadeDeEnviosParaScanntech")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<string>("Senha")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasColumnType("text");
 
                     b.Property<int>("SincronizacaoManual")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<int>("SincronizacaoPromocoes")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<int>("SincronizacaoVendas")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<string>("Usuario")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
@@ -72,8 +77,10 @@ namespace Concentrador_Scanntech_Repository.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint");
 
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("StatusId"));
+
                     b.Property<bool>("StatusDoBanco")
-                        .HasColumnType("tinyint(1)");
+                        .HasColumnType("boolean");
 
                     b.HasKey("StatusId");
 
@@ -93,12 +100,14 @@ namespace Concentrador_Scanntech_Repository.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint");
 
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
+
                     b.Property<long?>("DefinicoesScanntechId")
                         .HasColumnType("bigint");
 
                     b.Property<string>("UrlConnection")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
@@ -113,16 +122,18 @@ namespace Concentrador_Scanntech_Repository.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint");
 
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("ArtigoId"));
+
                     b.Property<long?>("BeneficioItemScanntechBeneficioItemId")
                         .HasColumnType("bigint");
 
                     b.Property<string>("CodigoDeBarras")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasColumnType("text");
 
                     b.Property<string>("Nome")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasColumnType("text");
 
                     b.HasKey("ArtigoId");
 
@@ -137,11 +148,13 @@ namespace Concentrador_Scanntech_Repository.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint");
 
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("BeneficioItemId"));
+
                     b.Property<long?>("BeneficioScanntechBeneficioId")
                         .HasColumnType("bigint");
 
                     b.Property<int>("Quantidade")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.HasKey("BeneficioItemId");
 
@@ -156,6 +169,8 @@ namespace Concentrador_Scanntech_Repository.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint");
 
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("BeneficioId"));
+
                     b.HasKey("BeneficioId");
 
                     b.ToTable("BeneficioScanntech");
@@ -167,16 +182,18 @@ namespace Concentrador_Scanntech_Repository.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint");
 
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("ArtigoId"));
+
                     b.Property<string>("CodigoDeBarras")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasColumnType("text");
 
                     b.Property<long?>("CondicaoItemScanntechCondicaoItemId")
                         .HasColumnType("bigint");
 
                     b.Property<string>("Nome")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasColumnType("text");
 
                     b.HasKey("ArtigoId");
 
@@ -191,11 +208,13 @@ namespace Concentrador_Scanntech_Repository.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint");
 
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("CondicaoItemId"));
+
                     b.Property<long?>("CondicaoScanntechCondicaoId")
                         .HasColumnType("bigint");
 
                     b.Property<int>("Quantidade")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.HasKey("CondicaoItemId");
 
@@ -210,6 +229,8 @@ namespace Concentrador_Scanntech_Repository.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint");
 
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("CondicaoId"));
+
                     b.HasKey("CondicaoId");
 
                     b.ToTable("CondicaoScanntech");
@@ -221,6 +242,8 @@ namespace Concentrador_Scanntech_Repository.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint");
 
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("DetalhePromocaoScanntechId"));
+
                     b.Property<long?>("BeneficioScanntechId")
                         .HasColumnType("bigint");
 
@@ -228,13 +251,13 @@ namespace Concentrador_Scanntech_Repository.Migrations
                         .HasColumnType("bigint");
 
                     b.Property<decimal?>("Desconto")
-                        .HasColumnType("decimal(65,30)");
+                        .HasColumnType("numeric");
 
                     b.Property<decimal?>("PrecoValorFixo")
-                        .HasColumnType("decimal(65,30)");
+                        .HasColumnType("numeric");
 
                     b.Property<int?>("QuantidadeItensLevaEPaga")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.HasKey("DetalhePromocaoScanntechId");
 
@@ -251,38 +274,40 @@ namespace Concentrador_Scanntech_Repository.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint");
 
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("PromocaoId"));
+
                     b.Property<long>("ApiId")
                         .HasColumnType("bigint");
 
                     b.Property<bool>("CargaPdv")
-                        .HasColumnType("tinyint(1)");
+                        .HasColumnType("boolean");
 
                     b.Property<DateTime>("DataEnvioPdv")
-                        .HasColumnType("datetime(6)");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Descricao")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasColumnType("text");
 
                     b.Property<long>("DetalhePromocaoScanntechId")
                         .HasColumnType("bigint");
 
                     b.Property<int?>("LimiteDePromocoesPorTicket")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<string>("TipoPromocao")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasColumnType("text");
 
                     b.Property<string>("Titulo")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasColumnType("text");
 
                     b.Property<DateTime>("VigenciaAte")
-                        .HasColumnType("datetime(6)");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<DateTime>("VigenciaDe")
-                        .HasColumnType("datetime(6)");
+                        .HasColumnType("timestamp with time zone");
 
                     b.HasKey("PromocaoId");
 
@@ -301,7 +326,7 @@ namespace Concentrador_Scanntech_Repository.Migrations
             modelBuilder.Entity("Concentrador_Scanntech_Entities.Model.Promocoes.BeneficioArtigoScanntech", b =>
                 {
                     b.HasOne("Concentrador_Scanntech_Entities.Model.Promocoes.BeneficioItemScanntech", null)
-                        .WithMany("ArtigosBeneficios")
+                        .WithMany("Artigos")
                         .HasForeignKey("BeneficioItemScanntechBeneficioItemId");
                 });
 
@@ -315,7 +340,7 @@ namespace Concentrador_Scanntech_Repository.Migrations
             modelBuilder.Entity("Concentrador_Scanntech_Entities.Model.Promocoes.CondicaoArtigoScanntech", b =>
                 {
                     b.HasOne("Concentrador_Scanntech_Entities.Model.Promocoes.CondicaoItemScanntech", null)
-                        .WithMany("ArtigosCondicoes")
+                        .WithMany("Artigos")
                         .HasForeignKey("CondicaoItemScanntechCondicaoItemId");
                 });
 
@@ -359,7 +384,7 @@ namespace Concentrador_Scanntech_Repository.Migrations
 
             modelBuilder.Entity("Concentrador_Scanntech_Entities.Model.Promocoes.BeneficioItemScanntech", b =>
                 {
-                    b.Navigation("ArtigosBeneficios");
+                    b.Navigation("Artigos");
                 });
 
             modelBuilder.Entity("Concentrador_Scanntech_Entities.Model.Promocoes.BeneficioScanntech", b =>
@@ -369,7 +394,7 @@ namespace Concentrador_Scanntech_Repository.Migrations
 
             modelBuilder.Entity("Concentrador_Scanntech_Entities.Model.Promocoes.CondicaoItemScanntech", b =>
                 {
-                    b.Navigation("ArtigosCondicoes");
+                    b.Navigation("Artigos");
                 });
 
             modelBuilder.Entity("Concentrador_Scanntech_Entities.Model.Promocoes.CondicaoScanntech", b =>

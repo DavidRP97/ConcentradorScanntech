@@ -8,9 +8,9 @@ namespace Concentrador_Scanntech_Repository.Repository
 {
     public class DefinicoesRepository : GenericRepository<DefinicoesScanntech>, IDefinicoesRepository
     {
-        private readonly MySqlDbContext _context;
+        private readonly AppDbContext _context;
         private readonly IMapper _mapper;
-        public DefinicoesRepository(MySqlDbContext context, IMapper mapper) : base(context, mapper)
+        public DefinicoesRepository(AppDbContext context, IMapper mapper) : base(context, mapper)
         {
             _context = context;
             _mapper = mapper;

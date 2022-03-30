@@ -11,6 +11,9 @@
     <Compile Update="Main\FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Promocoes\FrmPromocoesAtivasPdv.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Sincronizador\FrmSincronizador.cs">
       <SubType>Form</SubType>
     </Compile>

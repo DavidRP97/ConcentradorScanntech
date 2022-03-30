@@ -8,13 +8,13 @@ namespace Concentrador_Scanntech_Repository.UoW
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private readonly MySqlDbContext _context;
+        private readonly AppDbContext _context;
         private readonly IMapper _mapper;
         private IDefinicoesRepository definicoesRepository;
         private IStatusBancoRepository statusBancoRepository;
         private IPromocoesRepository promocoesRepository;
 
-        public UnitOfWork(MySqlDbContext context, IMapper mapper)
+        public UnitOfWork(AppDbContext context, IMapper mapper)
         {
             _mapper = mapper;
             _context = context;

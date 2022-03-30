@@ -17,3 +17,9 @@ dotnet_diagnostic.CS8600.severity = none
 
 # CS8603: Possível retorno de referência nula.
 dotnet_diagnostic.CS8603.severity = none
+
+# IDE0058: O valor da expressão nunca é usado
+dotnet_diagnostic.IDE0058.severity = none
+
+# CS8604: Possível argumento de referência nula.
+dotnet_diagnostic.CS8604.severity = none

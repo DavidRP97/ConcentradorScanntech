@@ -96,3 +96,4 @@ C:\blog-david.net\Concentrador-Scanntech\Concentrador-Scanntech-Tests\obj\Debug\
 C:\blog-david.net\Concentrador-Scanntech\Concentrador-Scanntech-Tests\obj\Debug\net6.0\ref\Concentrador-Scanntech-Tests.dll
 C:\blog-david.net\Concentrador-Scanntech\Concentrador-Scanntech-Tests\obj\Debug\net6.0\Concentrador-Scanntech-Tests.pdb
 C:\blog-david.net\Concentrador-Scanntech\Concentrador-Scanntech-Tests\obj\Debug\net6.0\Concentrador-Scanntech-Tests.genruntimeconfig.cache
+C:\blog-david.net\Concentrador-Scanntech\Concentrador-Scanntech-Tests\obj\Debug\net6.0\Concentrador-Scanntech-Tests.csproj.AssemblyReference.cache

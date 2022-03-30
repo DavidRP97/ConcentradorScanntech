@@ -17,17 +17,22 @@ namespace Concentrador_Scanntech_Services.Utils
                 Porta = linhas[1],
                 NomeDoBanco = linhas[2],
                 Usuario = linhas[3],
-                Senha = linhas[4]
+                Senha = linhas[4],
+                BancoDeDados = linhas[5]
             };
         }
         public static void GerarTxt(GerarStringDeConexaoDto stringDeConexao)
         {
-            var montarStringDeConexao = $@"Server={stringDeConexao.IpLocal};Port={stringDeConexao.Porta};Database={stringDeConexao.NomeDoBanco};Uid={stringDeConexao.Usuario};Pwd={stringDeConexao.Senha};";
+            string montarStringDeConexao = string.Empty;
+
+            if (stringDeConexao.BancoDeDados == "PostgreSQL") montarStringDeConexao = $@"User ID={stringDeConexao.Usuario};Password={stringDeConexao.Senha};Host={stringDeConexao.IpLocal};Port=5432;Database={stringDeConexao.NomeDoBanco};Pooling=true;";
+            if (stringDeConexao.BancoDeDados == "MySQL") montarStringDeConexao = $@"Server={stringDeConexao.IpLocal};Port={stringDeConexao.Porta};Database={stringDeConexao.NomeDoBanco};Uid={stringDeConexao.Usuario};Pwd={stringDeConexao.Senha};";
+
             var ItemAItem = new List<string>
             {
                 stringDeConexao.IpLocal, stringDeConexao.Porta,
                 stringDeConexao.NomeDoBanco, stringDeConexao.Usuario,
-                stringDeConexao.Senha
+                stringDeConexao.Senha, stringDeConexao.BancoDeDados
             };
 
             StreamWriter writer;
@@ -38,9 +43,9 @@ namespace Concentrador_Scanntech_Services.Utils
             }
 
             if (File.Exists(CaminhoStringDeConexao))
-            {                
+            {
                 File.Delete(CaminhoStringDeConexao);
-                writer = File.CreateText(CaminhoStringDeConexao);                
+                writer = File.CreateText(CaminhoStringDeConexao);
                 writer.Write(montarStringDeConexao);
                 writer.Close();
 

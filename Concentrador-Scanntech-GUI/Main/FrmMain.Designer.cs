@@ -35,6 +35,8 @@
             this.bancoDeDadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sincronizadorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.abrirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.promocõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.promocõesAtivasNoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1.SuspendLayout();
@@ -45,7 +47,8 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.configuraçõesToolStripMenuItem,
-            this.sincronizadorToolStripMenuItem});
+            this.sincronizadorToolStripMenuItem,
+            this.promocõesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(784, 24);
@@ -89,9 +92,24 @@
             // 
             this.abrirToolStripMenuItem.Name = "abrirToolStripMenuItem";
             this.abrirToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F2)));
-            this.abrirToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.abrirToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.abrirToolStripMenuItem.Text = "Abrir";
             this.abrirToolStripMenuItem.Click += new System.EventHandler(this.abrirToolStripMenuItem_Click);
+            // 
+            // promocõesToolStripMenuItem
+            // 
+            this.promocõesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.promocõesAtivasNoToolStripMenuItem});
+            this.promocõesToolStripMenuItem.Name = "promocõesToolStripMenuItem";
+            this.promocõesToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
+            this.promocõesToolStripMenuItem.Text = "Promocões";
+            // 
+            // promocõesAtivasNoToolStripMenuItem
+            // 
+            this.promocõesAtivasNoToolStripMenuItem.Name = "promocõesAtivasNoToolStripMenuItem";
+            this.promocõesAtivasNoToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
+            this.promocõesAtivasNoToolStripMenuItem.Text = "Promocões Ativas no PDV";
+            this.promocõesAtivasNoToolStripMenuItem.Click += new System.EventHandler(this.promocõesAtivasNoToolStripMenuItem_Click);
             // 
             // statusStrip1
             // 
@@ -142,5 +160,7 @@
         private ToolStripMenuItem bancoDeDadosToolStripMenuItem;
         private ToolStripMenuItem sincronizadorToolStripMenuItem;
         private ToolStripMenuItem abrirToolStripMenuItem;
+        private ToolStripMenuItem promocõesToolStripMenuItem;
+        private ToolStripMenuItem promocõesAtivasNoToolStripMenuItem;
     }
 }

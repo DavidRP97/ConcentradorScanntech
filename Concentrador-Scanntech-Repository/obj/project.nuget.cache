@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "AsTXVeOAKrchunJh/8wbOpkdDMDmB1TdNQi+ltc0EvwcRZ/Xvlq61ACnv2/2nru3nqYWcCOqRZSkbJC3sRNsrQ==",
+  "dgSpecHash": "lgWJwcM9caJz2+dMKJ3+8hZCNgDTSEPTkwTYjSgeq346u5SyS96FjplgHzXDbE7mX21yuEC6gNjH7BvJ7htrlg==",
   "success": true,
   "projectFilePath": "C:\\blog-david.net\\Concentrador-Scanntech\\Concentrador-Scanntech-Repository\\Concentrador-Scanntech-Repository.csproj",
   "expectedPackageFiles": [
@@ -23,6 +23,8 @@
     "C:\\Users\\drodr\\.nuget\\packages\\microsoft.extensions.options\\6.0.0\\microsoft.extensions.options.6.0.0.nupkg.sha512",
     "C:\\Users\\drodr\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
     "C:\\Users\\drodr\\.nuget\\packages\\mysqlconnector\\2.1.2\\mysqlconnector.2.1.2.nupkg.sha512",
+    "C:\\Users\\drodr\\.nuget\\packages\\npgsql\\6.0.1\\npgsql.6.0.1.nupkg.sha512",
+    "C:\\Users\\drodr\\.nuget\\packages\\npgsql.entityframeworkcore.postgresql\\6.0.1\\npgsql.entityframeworkcore.postgresql.6.0.1.nupkg.sha512",
     "C:\\Users\\drodr\\.nuget\\packages\\pomelo.entityframeworkcore.mysql\\6.0.1\\pomelo.entityframeworkcore.mysql.6.0.1.nupkg.sha512",
     "C:\\Users\\drodr\\.nuget\\packages\\system.collections.immutable\\6.0.0\\system.collections.immutable.6.0.0.nupkg.sha512",
     "C:\\Users\\drodr\\.nuget\\packages\\system.diagnostics.diagnosticsource\\6.0.0\\system.diagnostics.diagnosticsource.6.0.0.nupkg.sha512",

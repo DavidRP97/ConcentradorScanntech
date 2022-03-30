@@ -43,3 +43,6 @@ C:\blog-david.net\Concentrador-Scanntech\Concentrador-Scanntech-GUI\obj\Debug\ne
 C:\blog-david.net\Concentrador-Scanntech\Concentrador-Scanntech-GUI\obj\Debug\net6.0-windows\ref\Concentrador-Scanntech-GUI.dll
 C:\blog-david.net\Concentrador-Scanntech\Concentrador-Scanntech-GUI\obj\Debug\net6.0-windows\Concentrador-Scanntech-GUI.pdb
 C:\blog-david.net\Concentrador-Scanntech\Concentrador-Scanntech-GUI\obj\Debug\net6.0-windows\Concentrador-Scanntech-GUI.genruntimeconfig.cache
+C:\blog-david.net\Concentrador-Scanntech\Concentrador-Scanntech-GUI\obj\Debug\net6.0-windows\Concentrador_Scanntech_GUI.Promocoes.FrmPromocoesAtivasPdv.resources
+C:\blog-david.net\Concentrador-Scanntech\Concentrador-Scanntech-GUI\bin\Debug\net6.0-windows\Npgsql.dll
+C:\blog-david.net\Concentrador-Scanntech\Concentrador-Scanntech-GUI\bin\Debug\net6.0-windows\Npgsql.EntityFrameworkCore.PostgreSQL.dll

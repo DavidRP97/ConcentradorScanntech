@@ -1,5 +1,7 @@
 ﻿using Concentrador_Scanntech_Entities.Model.Definicoes;
+using Concentrador_Scanntech_GUI.Sincronizador;
 using Concentrador_Scanntech_Repository.UoW;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -44,7 +46,7 @@ namespace Concentrador_Scanntech_GUI.Configuracoes
             {
                 var definicoes = await _uow.DefinicoesRepository.ObterTodosInclusoUrl();
 
-                if (definicoes.Count() > 0) 
+                if (definicoes.Count() > 0)
                 {
                     var definicao = definicoes.FirstOrDefault();
 
@@ -103,7 +105,7 @@ namespace Concentrador_Scanntech_GUI.Configuracoes
                 definicao.Senha = txtSenha.Text;
                 definicao.IdCompanhia = Convert.ToInt32(txtCodigoEmpresa.Text);
                 definicao.IdLocal = Convert.ToInt32(txtIdLocal.Text);
-                definicao.DataDeIntegração = Convert.ToDateTime(mtbDataIntegracao.Text);
+                definicao.DataDeIntegração = Convert.ToDateTime(mtbDataIntegracao.Text).ToUniversalTime();
                 definicao.HorarioDeEnvioFechamento = mtbFechamento.Text;
                 definicao.QuantidadeDeEnviosParaScanntech = Convert.ToInt32(numRequisicoes.Value);
                 definicao.SincronizacaoPromocoes = Convert.ToInt32(numPromo.Value);
@@ -120,21 +122,22 @@ namespace Concentrador_Scanntech_GUI.Configuracoes
 
                 var salvo = await _uow.DefinicoesRepository.AddOrUpdate(definicao);
 
-                if(salvo == false)
+                if (salvo == false)
                 {
                     MessageBox.Show("Falha ao salvar as informações", "Falha", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
-                {                    
+                {
                     MessageBox.Show("Alterações salvas com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Application.Restart();
                 }
 
                 this.Close();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                MessageBox.Show("Falha ao salvar as informações", "Falha", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+                MessageBox.Show($"Falha ao salvar as informações {ex.Message}", "Falha", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

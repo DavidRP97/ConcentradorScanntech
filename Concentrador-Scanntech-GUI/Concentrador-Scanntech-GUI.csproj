@@ -25,6 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Concentrador-Scanntech-Entities\Concentrador-Scanntech-Entities.csproj" />
     <ProjectReference Include="..\Concentrador-Scanntech-Repository\Concentrador-Scanntech-Repository.csproj" />
     <ProjectReference Include="..\Concentrador-Scanntech-Services\Concentrador-Scanntech-Services.csproj" />
   </ItemGroup>

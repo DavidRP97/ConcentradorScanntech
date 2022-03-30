@@ -41,6 +41,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.btnCriarBanco = new System.Windows.Forms.Button();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.label6 = new System.Windows.Forms.Label();
+            this.cmbBanco = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.numPorta)).BeginInit();
             this.SuspendLayout();
             // 
@@ -132,7 +134,7 @@
             // 
             // btnCriarBanco
             // 
-            this.btnCriarBanco.Location = new System.Drawing.Point(130, 163);
+            this.btnCriarBanco.Location = new System.Drawing.Point(130, 194);
             this.btnCriarBanco.Name = "btnCriarBanco";
             this.btnCriarBanco.Size = new System.Drawing.Size(171, 30);
             this.btnCriarBanco.TabIndex = 7;
@@ -140,11 +142,33 @@
             this.btnCriarBanco.UseVisualStyleBackColor = true;
             this.btnCriarBanco.Click += new System.EventHandler(this.btnCriarBanco_Click);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(12, 171);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(95, 15);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "Banco de Dados:";
+            // 
+            // cmbBanco
+            // 
+            this.cmbBanco.FormattingEnabled = true;
+            this.cmbBanco.Items.AddRange(new object[] {
+            "PostgreSQL",
+            "MySQL"});
+            this.cmbBanco.Location = new System.Drawing.Point(130, 163);
+            this.cmbBanco.Name = "cmbBanco";
+            this.cmbBanco.Size = new System.Drawing.Size(171, 23);
+            this.cmbBanco.TabIndex = 11;
+            // 
             // FrmConfigurarBancoDeDados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(317, 200);
+            this.ClientSize = new System.Drawing.Size(317, 236);
+            this.Controls.Add(this.cmbBanco);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.btnCriarBanco);
             this.Controls.Add(this.txtSenha);
             this.Controls.Add(this.label5);
@@ -181,5 +205,7 @@
         private Label label5;
         private Button btnCriarBanco;
         private FolderBrowserDialog folderBrowserDialog1;
+        private Label label6;
+        private ComboBox cmbBanco;
     }
 }

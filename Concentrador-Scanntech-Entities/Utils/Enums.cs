@@ -15,5 +15,10 @@
             Url3,
             Url4
         }
+        public enum BancoDeDados
+        {
+            PostgreSQL, 
+            MySql
+        }
     }
 }

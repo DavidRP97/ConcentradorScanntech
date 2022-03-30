@@ -1,4 +1,5 @@
 ﻿using Concentrador_Scanntech_GUI.Configuracoes;
+using Concentrador_Scanntech_GUI.Promocoes;
 using Concentrador_Scanntech_GUI.Sincronizador;
 using Concentrador_Scanntech_Repository.Interfaces;
 using Concentrador_Scanntech_Repository.UoW;
@@ -80,6 +81,13 @@ namespace Concentrador_Scanntech_GUI.Main
         private void abrirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var frm = Program.serviceProvider.GetService<FrmSincronizador>();
+            frm.Show();
+        }
+
+        private void promocõesAtivasNoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var frm = Program.serviceProvider.GetService<FrmPromocoesAtivasPdv>();
+            frm.MdiParent = this;
             frm.Show();
         }
     }

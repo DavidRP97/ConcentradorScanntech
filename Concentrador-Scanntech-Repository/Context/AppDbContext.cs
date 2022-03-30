@@ -4,22 +4,27 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Concentrador_Scanntech_Repository.Context
 {
-    public class MySqlDbContext : DbContext
+    public class AppDbContext : DbContext
     {
         private const string ConnectionStringPath = $"C:\\ConcentradorScanntech\\Conexao\\stringDeConexao.txt";
+        private const string CaminhoItensString = $"C:\\ConcentradorScanntech\\Conexao\\itensString.txt";
+
         private string ConnectionString()
         {
             if (File.Exists(ConnectionStringPath))
             {
-                var path = File.ReadAllText(ConnectionStringPath); 
+                var path = File.ReadAllText(ConnectionStringPath);
 
                 return path;
             }
             return string.Empty;
-        }        
+        }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseMySql(ConnectionString(), ServerVersion.AutoDetect(ConnectionString()));
+            var linhas = File.ReadAllLines(CaminhoItensString);
+
+            if (linhas[5] == "MySQL") optionsBuilder.UseMySql(ConnectionString(), ServerVersion.AutoDetect(ConnectionString()));
+            else if (linhas[5] == "PostgreSQL") optionsBuilder.UseNpgsql(ConnectionString());
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -31,7 +36,6 @@ namespace Concentrador_Scanntech_Repository.Context
                 StatusDoBanco = true
             });
         }
-
         public DbSet<DefinicoesScanntech> DefinicoesScanntech { get; set; }
         public DbSet<Status> StatusDoBanco { get; set; }
         public DbSet<URL> URLs { get; set; }

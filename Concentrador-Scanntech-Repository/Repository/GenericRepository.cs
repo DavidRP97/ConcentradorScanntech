@@ -7,10 +7,10 @@ namespace Concentrador_Scanntech_Repository.Repository
 {
     public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class
     {
-        private readonly MySqlDbContext _context;
+        private readonly AppDbContext _context;
         private readonly IMapper _mapper;
 
-        public GenericRepository(MySqlDbContext context, IMapper mapper)
+        public GenericRepository(AppDbContext context, IMapper mapper)
         {
             _context = context ?? throw new ArgumentNullException(nameof(context));
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
