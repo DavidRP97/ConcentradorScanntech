@@ -30,37 +30,28 @@ namespace Concentrador_Scanntech_GUI.Main
 
         private void FrmMain_Load(object? sender, EventArgs e)
         {
-            if (VerificarSeBancoEstaAtivo().Result == true)
+            if (VerificarSeBancoEstaAtivo() == true)
             {
                 var nomeBanco = StringDeConexao.LerTxt();
-                lblStatus.Text = $"Status: Conectado - {nomeBanco.NomeDoBanco}";
+                lblStatus.Text = $"Status: Conectado - {nomeBanco.BancoDeDados} - {nomeBanco.NomeDoBanco}";
                 lblStatus.ForeColor = Color.DarkGreen;
+
+                if (DialogResult.Yes == MessageBox.Show("Deseja iniciar o sincronizador?", "Iniciar", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+                {
+                    AbrirFormSincronizador();
+                }
             }
             else
             {
-                lblStatus.Text = $"Status: Não conectado.";
+                var nomeBanco = StringDeConexao.LerTxt();
+                lblStatus.Text = $"Status: Conectado - {nomeBanco.BancoDeDados} - {nomeBanco.NomeDoBanco} - definições do sincronizador ausentes e/ou inválidas";
                 lblStatus.ForeColor = Color.Red;
             }
-        }
-
-        private async Task<bool> VerificarSeBancoEstaAtivo()
-        {
-            var status = await _uow.StatusBancoRepository.ObterTodos();
-            var ativo = status.FirstOrDefault();
-
-            if (status.Count() != 0 && ativo.StatusDoBanco == true)
-            {
-                return true;
-            }
-
-            return false;
-        }
+        }        
 
         private void definiçõesScanntechToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var frm = Program.serviceProvider.GetService<FrmDefinicoesScanntech>();
-            frm.MdiParent = this;
-            frm.Show();
+            AbrirFormDefinicoes();
         }
 
         private void bancoDeDadosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -68,9 +59,7 @@ namespace Concentrador_Scanntech_GUI.Main
 
             try
             {
-                var frm = Program.serviceProvider.GetService<FrmConfigurarBancoDeDados>();
-                frm.Flag = 1;
-                frm.ShowDialog();
+                AbrirFormConfigBancoDeDados();
             }
             catch (Exception ex)
             {
@@ -80,15 +69,66 @@ namespace Concentrador_Scanntech_GUI.Main
 
         private void abrirToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var frm = Program.serviceProvider.GetService<FrmSincronizador>();
-            frm.Show();
+            AbrirFormSincronizador();
         }
 
         private void promocõesAtivasNoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirFormPromocoes();
+        }
+
+        #region Abrir Forms
+
+        private void AbrirFormPromocoes()
         {
             var frm = Program.serviceProvider.GetService<FrmPromocoesAtivasPdv>();
             frm.MdiParent = this;
             frm.Show();
         }
+
+        private void AbrirFormSincronizador()
+        {
+            var frm = Program.serviceProvider.GetService<FrmSincronizador>();
+            frm.Show();
+        }
+
+        private void AbrirFormConfigBancoDeDados()
+        {
+            var frm = Program.serviceProvider.GetService<FrmConfigurarBancoDeDados>();
+            frm.Flag = 1;
+            frm.ShowDialog();
+        }
+
+        private void AbrirFormDefinicoes()
+        {
+            var frm = Program.serviceProvider.GetService<FrmDefinicoesScanntech>();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        #endregion
+
+        #region Metodos
+        private bool VerificarSeBancoEstaAtivo()
+        {
+            try
+            {
+                var status = _uow.DefinicoesRepository.ObterTodos();
+
+                if (status.Count() != 0)
+                {
+                    return true;
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Banco de dados não configurado ou configurações inválidas\nVerifique as configurações de acesso",
+                    "Erro de conexão", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                AbrirFormConfigBancoDeDados();
+            }
+            return false;
+        }
+        #endregion
     }
 }

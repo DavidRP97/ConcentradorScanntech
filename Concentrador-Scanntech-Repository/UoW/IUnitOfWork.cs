@@ -7,7 +7,6 @@ namespace Concentrador_Scanntech_Repository.UoW
     public interface IUnitOfWork
     {
         IDefinicoesRepository DefinicoesRepository { get; }
-        IStatusBancoRepository StatusBancoRepository { get; }
         IPromocoesRepository PromocoesRepository { get; }   
     }
 }

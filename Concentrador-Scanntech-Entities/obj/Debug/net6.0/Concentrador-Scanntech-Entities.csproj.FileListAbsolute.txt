@@ -9,3 +9,4 @@ C:\blog-david.net\Concentrador-Scanntech\Concentrador-Scanntech-Entities\obj\Deb
 C:\blog-david.net\Concentrador-Scanntech\Concentrador-Scanntech-Entities\obj\Debug\net6.0\Concentrador-Scanntech-Entities.dll
 C:\blog-david.net\Concentrador-Scanntech\Concentrador-Scanntech-Entities\obj\Debug\net6.0\ref\Concentrador-Scanntech-Entities.dll
 C:\blog-david.net\Concentrador-Scanntech\Concentrador-Scanntech-Entities\obj\Debug\net6.0\Concentrador-Scanntech-Entities.pdb
+C:\blog-david.net\Concentrador-Scanntech\Concentrador-Scanntech-Entities\obj\Debug\net6.0\Concentrador-Scanntech-Entities.csproj.AssemblyReference.cache

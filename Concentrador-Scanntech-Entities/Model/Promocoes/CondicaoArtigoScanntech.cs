@@ -7,9 +7,7 @@ namespace Concentrador_Scanntech_Entities.Model.Promocoes
     {
         [Key]
         public long ArtigoId { get; set; }
-        [NotMapped]
         public long ApiId { get; set; }
-        [NotMapped]
         public int QuantidadeParaAtivarPromocao { get; set; }
         public string Nome { get; set; }
         public string CodigoDeBarras { get; set; }

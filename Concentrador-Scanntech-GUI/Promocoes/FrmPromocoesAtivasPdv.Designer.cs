@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPromocoesAtivasPdv));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.gridPromocao = new System.Windows.Forms.DataGridView();
@@ -42,27 +43,33 @@
             this.promocaoScanntechBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.gridCondicao = new System.Windows.Forms.DataGridView();
-            this.condicaoArtigoScanntechBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.gridBeneficio = new System.Windows.Forms.DataGridView();
-            this.beneficioArtigoScanntechBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.artigoIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.apiIdDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantidadeParaAtivarPromocaoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nomeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codigoDeBarrasDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.condicaoArtigoScanntechBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.gridBeneficio = new System.Windows.Forms.DataGridView();
+            this.artigoIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.apiIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantidadeParaAtivarPromocaoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codigoDeBarrasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.beneficioArtigoScanntechBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.condicaoArtigoScanntechBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.beneficioArtigoScanntechBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridPromocao)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.promocaoScanntechBindingSource)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridCondicao)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.condicaoArtigoScanntechBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.condicaoArtigoScanntechBindingSource1)).BeginInit();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridBeneficio)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.beneficioArtigoScanntechBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.condicaoArtigoScanntechBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.beneficioArtigoScanntechBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -114,11 +121,12 @@
             this.cargaPdvDataGridViewCheckBoxColumn.DataPropertyName = "CargaPdv";
             this.cargaPdvDataGridViewCheckBoxColumn.HeaderText = "CargaPdv";
             this.cargaPdvDataGridViewCheckBoxColumn.Name = "cargaPdvDataGridViewCheckBoxColumn";
+            this.cargaPdvDataGridViewCheckBoxColumn.Width = 70;
             // 
             // apiIdDataGridViewTextBoxColumn
             // 
             this.apiIdDataGridViewTextBoxColumn.DataPropertyName = "ApiId";
-            this.apiIdDataGridViewTextBoxColumn.HeaderText = "ApiId";
+            this.apiIdDataGridViewTextBoxColumn.HeaderText = "CodigoPromocao";
             this.apiIdDataGridViewTextBoxColumn.Name = "apiIdDataGridViewTextBoxColumn";
             // 
             // limiteDePromocoesPorTicketDataGridViewTextBoxColumn
@@ -171,11 +179,12 @@
             this.gridCondicao.AutoGenerateColumns = false;
             this.gridCondicao.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridCondicao.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.artigoIdDataGridViewTextBoxColumn,
             this.apiIdDataGridViewTextBoxColumn2,
             this.quantidadeParaAtivarPromocaoDataGridViewTextBoxColumn1,
             this.nomeDataGridViewTextBoxColumn1,
             this.codigoDeBarrasDataGridViewTextBoxColumn1});
-            this.gridCondicao.DataSource = this.condicaoArtigoScanntechBindingSource;
+            this.gridCondicao.DataSource = this.condicaoArtigoScanntechBindingSource1;
             this.gridCondicao.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridCondicao.Location = new System.Drawing.Point(3, 3);
             this.gridCondicao.Name = "gridCondicao";
@@ -183,9 +192,40 @@
             this.gridCondicao.Size = new System.Drawing.Size(786, 416);
             this.gridCondicao.TabIndex = 0;
             // 
-            // condicaoArtigoScanntechBindingSource
+            // artigoIdDataGridViewTextBoxColumn
             // 
-            this.condicaoArtigoScanntechBindingSource.DataSource = typeof(Concentrador_Scanntech_Entities.Model.Promocoes.CondicaoArtigoScanntech);
+            this.artigoIdDataGridViewTextBoxColumn.DataPropertyName = "ArtigoId";
+            this.artigoIdDataGridViewTextBoxColumn.HeaderText = "ItemId";
+            this.artigoIdDataGridViewTextBoxColumn.Name = "artigoIdDataGridViewTextBoxColumn";
+            // 
+            // apiIdDataGridViewTextBoxColumn2
+            // 
+            this.apiIdDataGridViewTextBoxColumn2.DataPropertyName = "ApiId";
+            this.apiIdDataGridViewTextBoxColumn2.HeaderText = "CodigoPromocao";
+            this.apiIdDataGridViewTextBoxColumn2.Name = "apiIdDataGridViewTextBoxColumn2";
+            // 
+            // quantidadeParaAtivarPromocaoDataGridViewTextBoxColumn1
+            // 
+            this.quantidadeParaAtivarPromocaoDataGridViewTextBoxColumn1.DataPropertyName = "QuantidadeParaAtivarPromocao";
+            this.quantidadeParaAtivarPromocaoDataGridViewTextBoxColumn1.HeaderText = "QuantidadeParaAtivarPromocao";
+            this.quantidadeParaAtivarPromocaoDataGridViewTextBoxColumn1.Name = "quantidadeParaAtivarPromocaoDataGridViewTextBoxColumn1";
+            // 
+            // nomeDataGridViewTextBoxColumn1
+            // 
+            this.nomeDataGridViewTextBoxColumn1.DataPropertyName = "Nome";
+            this.nomeDataGridViewTextBoxColumn1.HeaderText = "Nome";
+            this.nomeDataGridViewTextBoxColumn1.Name = "nomeDataGridViewTextBoxColumn1";
+            this.nomeDataGridViewTextBoxColumn1.Width = 300;
+            // 
+            // codigoDeBarrasDataGridViewTextBoxColumn1
+            // 
+            this.codigoDeBarrasDataGridViewTextBoxColumn1.DataPropertyName = "CodigoDeBarras";
+            this.codigoDeBarrasDataGridViewTextBoxColumn1.HeaderText = "CodigoDeBarras";
+            this.codigoDeBarrasDataGridViewTextBoxColumn1.Name = "codigoDeBarrasDataGridViewTextBoxColumn1";
+            // 
+            // condicaoArtigoScanntechBindingSource1
+            // 
+            this.condicaoArtigoScanntechBindingSource1.DataSource = typeof(Concentrador_Scanntech_Entities.Model.Promocoes.CondicaoArtigoScanntech);
             // 
             // tabPage3
             // 
@@ -202,11 +242,12 @@
             this.gridBeneficio.AutoGenerateColumns = false;
             this.gridBeneficio.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridBeneficio.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.artigoIdDataGridViewTextBoxColumn1,
             this.apiIdDataGridViewTextBoxColumn1,
             this.quantidadeParaAtivarPromocaoDataGridViewTextBoxColumn,
             this.nomeDataGridViewTextBoxColumn,
             this.codigoDeBarrasDataGridViewTextBoxColumn});
-            this.gridBeneficio.DataSource = this.beneficioArtigoScanntechBindingSource;
+            this.gridBeneficio.DataSource = this.beneficioArtigoScanntechBindingSource1;
             this.gridBeneficio.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridBeneficio.Location = new System.Drawing.Point(0, 0);
             this.gridBeneficio.Name = "gridBeneficio";
@@ -214,38 +255,16 @@
             this.gridBeneficio.Size = new System.Drawing.Size(792, 422);
             this.gridBeneficio.TabIndex = 0;
             // 
-            // beneficioArtigoScanntechBindingSource
+            // artigoIdDataGridViewTextBoxColumn1
             // 
-            this.beneficioArtigoScanntechBindingSource.DataSource = typeof(Concentrador_Scanntech_Entities.Model.Promocoes.BeneficioArtigoScanntech);
-            // 
-            // apiIdDataGridViewTextBoxColumn2
-            // 
-            this.apiIdDataGridViewTextBoxColumn2.DataPropertyName = "ApiId";
-            this.apiIdDataGridViewTextBoxColumn2.HeaderText = "CodigoPromo";
-            this.apiIdDataGridViewTextBoxColumn2.Name = "apiIdDataGridViewTextBoxColumn2";
-            // 
-            // quantidadeParaAtivarPromocaoDataGridViewTextBoxColumn1
-            // 
-            this.quantidadeParaAtivarPromocaoDataGridViewTextBoxColumn1.DataPropertyName = "QuantidadeParaAtivarPromocao";
-            this.quantidadeParaAtivarPromocaoDataGridViewTextBoxColumn1.HeaderText = "QuantidadeParaAtivarPromocao";
-            this.quantidadeParaAtivarPromocaoDataGridViewTextBoxColumn1.Name = "quantidadeParaAtivarPromocaoDataGridViewTextBoxColumn1";
-            // 
-            // nomeDataGridViewTextBoxColumn1
-            // 
-            this.nomeDataGridViewTextBoxColumn1.DataPropertyName = "Nome";
-            this.nomeDataGridViewTextBoxColumn1.HeaderText = "Nome";
-            this.nomeDataGridViewTextBoxColumn1.Name = "nomeDataGridViewTextBoxColumn1";
-            // 
-            // codigoDeBarrasDataGridViewTextBoxColumn1
-            // 
-            this.codigoDeBarrasDataGridViewTextBoxColumn1.DataPropertyName = "CodigoDeBarras";
-            this.codigoDeBarrasDataGridViewTextBoxColumn1.HeaderText = "CodigoDeBarras";
-            this.codigoDeBarrasDataGridViewTextBoxColumn1.Name = "codigoDeBarrasDataGridViewTextBoxColumn1";
+            this.artigoIdDataGridViewTextBoxColumn1.DataPropertyName = "ArtigoId";
+            this.artigoIdDataGridViewTextBoxColumn1.HeaderText = "ItemId";
+            this.artigoIdDataGridViewTextBoxColumn1.Name = "artigoIdDataGridViewTextBoxColumn1";
             // 
             // apiIdDataGridViewTextBoxColumn1
             // 
             this.apiIdDataGridViewTextBoxColumn1.DataPropertyName = "ApiId";
-            this.apiIdDataGridViewTextBoxColumn1.HeaderText = "CodigoPromo";
+            this.apiIdDataGridViewTextBoxColumn1.HeaderText = "CodigoPromocao";
             this.apiIdDataGridViewTextBoxColumn1.Name = "apiIdDataGridViewTextBoxColumn1";
             // 
             // quantidadeParaAtivarPromocaoDataGridViewTextBoxColumn
@@ -259,6 +278,7 @@
             this.nomeDataGridViewTextBoxColumn.DataPropertyName = "Nome";
             this.nomeDataGridViewTextBoxColumn.HeaderText = "Nome";
             this.nomeDataGridViewTextBoxColumn.Name = "nomeDataGridViewTextBoxColumn";
+            this.nomeDataGridViewTextBoxColumn.Width = 300;
             // 
             // codigoDeBarrasDataGridViewTextBoxColumn
             // 
@@ -266,15 +286,28 @@
             this.codigoDeBarrasDataGridViewTextBoxColumn.HeaderText = "CodigoDeBarras";
             this.codigoDeBarrasDataGridViewTextBoxColumn.Name = "codigoDeBarrasDataGridViewTextBoxColumn";
             // 
+            // beneficioArtigoScanntechBindingSource1
+            // 
+            this.beneficioArtigoScanntechBindingSource1.DataSource = typeof(Concentrador_Scanntech_Entities.Model.Promocoes.BeneficioArtigoScanntech);
+            // 
+            // condicaoArtigoScanntechBindingSource
+            // 
+            this.condicaoArtigoScanntechBindingSource.DataSource = typeof(Concentrador_Scanntech_Entities.Model.Promocoes.CondicaoArtigoScanntech);
+            // 
+            // beneficioArtigoScanntechBindingSource
+            // 
+            this.beneficioArtigoScanntechBindingSource.DataSource = typeof(Concentrador_Scanntech_Entities.Model.Promocoes.BeneficioArtigoScanntech);
+            // 
             // FrmPromocoesAtivasPdv
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tabControl1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmPromocoesAtivasPdv";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmPromocoesAtivasPdv";
+            this.Text = "Promoções Scanntech";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -282,9 +315,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.promocaoScanntechBindingSource)).EndInit();
             this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridCondicao)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.condicaoArtigoScanntechBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.condicaoArtigoScanntechBindingSource1)).EndInit();
             this.tabPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridBeneficio)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.beneficioArtigoScanntechBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.condicaoArtigoScanntechBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.beneficioArtigoScanntechBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -298,6 +333,12 @@
         private TabPage tabPage2;
         private TabPage tabPage3;
         private BindingSource promocaoScanntechBindingSource;
+        private DataGridView gridCondicao;
+        private DataGridView gridBeneficio;
+        private BindingSource condicaoArtigoScanntechBindingSource;
+        private BindingSource beneficioArtigoScanntechBindingSource;
+        private BindingSource condicaoArtigoScanntechBindingSource1;
+        private BindingSource beneficioArtigoScanntechBindingSource1;
         private DataGridViewCheckBoxColumn cargaPdvDataGridViewCheckBoxColumn;
         private DataGridViewTextBoxColumn apiIdDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn limiteDePromocoesPorTicketDataGridViewTextBoxColumn;
@@ -305,14 +346,12 @@
         private DataGridViewTextBoxColumn vigenciaDeDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn vigenciaAteDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn dataEnvioPdvDataGridViewTextBoxColumn;
-        private DataGridView gridCondicao;
-        private DataGridView gridBeneficio;
-        private BindingSource condicaoArtigoScanntechBindingSource;
-        private BindingSource beneficioArtigoScanntechBindingSource;
+        private DataGridViewTextBoxColumn artigoIdDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn apiIdDataGridViewTextBoxColumn2;
         private DataGridViewTextBoxColumn quantidadeParaAtivarPromocaoDataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn nomeDataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn codigoDeBarrasDataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn artigoIdDataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn apiIdDataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn quantidadeParaAtivarPromocaoDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn nomeDataGridViewTextBoxColumn;

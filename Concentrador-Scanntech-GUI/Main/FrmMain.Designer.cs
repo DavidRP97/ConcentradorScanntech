@@ -39,6 +39,13 @@
             this.promocõesAtivasNoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblStatus = new System.Windows.Forms.ToolStripStatusLabel();
+            this.relatóriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.vendasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.promoçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.vendasToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.vendasToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.vendasEnviadasScanntechToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.vendasToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -46,9 +53,11 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.configuraçõesToolStripMenuItem,
             this.sincronizadorToolStripMenuItem,
-            this.promocõesToolStripMenuItem});
+            this.configuraçõesToolStripMenuItem,
+            this.promocõesToolStripMenuItem,
+            this.vendasToolStripMenuItem2,
+            this.relatóriosToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(784, 24);
@@ -92,7 +101,7 @@
             // 
             this.abrirToolStripMenuItem.Name = "abrirToolStripMenuItem";
             this.abrirToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F2)));
-            this.abrirToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.abrirToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.abrirToolStripMenuItem.Text = "Abrir";
             this.abrirToolStripMenuItem.Click += new System.EventHandler(this.abrirToolStripMenuItem_Click);
             // 
@@ -107,7 +116,8 @@
             // promocõesAtivasNoToolStripMenuItem
             // 
             this.promocõesAtivasNoToolStripMenuItem.Name = "promocõesAtivasNoToolStripMenuItem";
-            this.promocõesAtivasNoToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
+            this.promocõesAtivasNoToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F4;
+            this.promocõesAtivasNoToolStripMenuItem.Size = new System.Drawing.Size(230, 22);
             this.promocõesAtivasNoToolStripMenuItem.Text = "Promocões Ativas no PDV";
             this.promocõesAtivasNoToolStripMenuItem.Click += new System.EventHandler(this.promocõesAtivasNoToolStripMenuItem_Click);
             // 
@@ -126,6 +136,56 @@
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(42, 17);
             this.lblStatus.Text = "Status:";
+            // 
+            // relatóriosToolStripMenuItem
+            // 
+            this.relatóriosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.vendasToolStripMenuItem,
+            this.promoçõesToolStripMenuItem,
+            this.vendasToolStripMenuItem1});
+            this.relatóriosToolStripMenuItem.Name = "relatóriosToolStripMenuItem";
+            this.relatóriosToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
+            this.relatóriosToolStripMenuItem.Text = "Relatórios";
+            // 
+            // vendasToolStripMenuItem
+            // 
+            this.vendasToolStripMenuItem.Name = "vendasToolStripMenuItem";
+            this.vendasToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
+            | System.Windows.Forms.Keys.F)));
+            this.vendasToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.vendasToolStripMenuItem.Text = "Fechamentos";
+            // 
+            // promoçõesToolStripMenuItem
+            // 
+            this.promoçõesToolStripMenuItem.Name = "promoçõesToolStripMenuItem";
+            this.promoçõesToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
+            | System.Windows.Forms.Keys.P)));
+            this.promoçõesToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.promoçõesToolStripMenuItem.Text = "Promoções";
+            // 
+            // vendasToolStripMenuItem1
+            // 
+            this.vendasToolStripMenuItem1.Name = "vendasToolStripMenuItem1";
+            this.vendasToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
+            | System.Windows.Forms.Keys.V)));
+            this.vendasToolStripMenuItem1.Size = new System.Drawing.Size(208, 22);
+            this.vendasToolStripMenuItem1.Text = "Vendas";
+            // 
+            // vendasToolStripMenuItem2
+            // 
+            this.vendasToolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.vendasEnviadasScanntechToolStripMenuItem,
+            this.vendasToolStripMenuItem3});
+            this.vendasToolStripMenuItem2.Name = "vendasToolStripMenuItem2";
+            this.vendasToolStripMenuItem2.Size = new System.Drawing.Size(56, 20);
+            this.vendasToolStripMenuItem2.Text = "Vendas";
+            // 
+            // vendasEnviadasScanntechToolStripMenuItem
+            // 
+            this.vendasEnviadasScanntechToolStripMenuItem.Name = "vendasEnviadasScanntechToolStripMenuItem";
+            this.vendasEnviadasScanntechToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F5;
+            this.vendasEnviadasScanntechToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
+            this.vendasEnviadasScanntechToolStripMenuItem.Text = "Vendas enviadas Scanntech";            
             // 
             // FrmMain
             // 
@@ -162,5 +222,12 @@
         private ToolStripMenuItem abrirToolStripMenuItem;
         private ToolStripMenuItem promocõesToolStripMenuItem;
         private ToolStripMenuItem promocõesAtivasNoToolStripMenuItem;
+        private ToolStripMenuItem vendasToolStripMenuItem2;
+        private ToolStripMenuItem vendasEnviadasScanntechToolStripMenuItem;
+        private ToolStripMenuItem vendasToolStripMenuItem3;
+        private ToolStripMenuItem relatóriosToolStripMenuItem;
+        private ToolStripMenuItem vendasToolStripMenuItem;
+        private ToolStripMenuItem promoçõesToolStripMenuItem;
+        private ToolStripMenuItem vendasToolStripMenuItem1;
     }
 }

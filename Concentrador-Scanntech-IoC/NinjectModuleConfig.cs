@@ -9,7 +9,6 @@ namespace Concentrador_Scanntech_IoC
     {
         public override void Load()
         {
-            Bind<IStatusBancoRepository>().To<StatusBancoRepository>();
             Bind<IDefinicoesRepository>().To<DefinicoesRepository>();
             Bind<IMapper>().To<Mapper>();   
         }

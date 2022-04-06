@@ -154,9 +154,6 @@
             // cmbBanco
             // 
             this.cmbBanco.FormattingEnabled = true;
-            this.cmbBanco.Items.AddRange(new object[] {
-            "PostgreSQL",
-            "MySQL"});
             this.cmbBanco.Location = new System.Drawing.Point(130, 163);
             this.cmbBanco.Name = "cmbBanco";
             this.cmbBanco.Size = new System.Drawing.Size(171, 23);

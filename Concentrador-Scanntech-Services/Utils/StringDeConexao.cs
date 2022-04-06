@@ -1,4 +1,5 @@
 ﻿using Concentrador_Scanntech_Entities.Dtos;
+using Concentrador_Scanntech_Entities.Utils;
 
 namespace Concentrador_Scanntech_Services.Utils
 {
@@ -25,9 +26,9 @@ namespace Concentrador_Scanntech_Services.Utils
         {
             string montarStringDeConexao = string.Empty;
 
-            if (stringDeConexao.BancoDeDados == "PostgreSQL") montarStringDeConexao = $@"User ID={stringDeConexao.Usuario};Password={stringDeConexao.Senha};Host={stringDeConexao.IpLocal};Port=5432;Database={stringDeConexao.NomeDoBanco};Pooling=true;";
-            if (stringDeConexao.BancoDeDados == "MySQL") montarStringDeConexao = $@"Server={stringDeConexao.IpLocal};Port={stringDeConexao.Porta};Database={stringDeConexao.NomeDoBanco};Uid={stringDeConexao.Usuario};Pwd={stringDeConexao.Senha};";
-
+            if (stringDeConexao.BancoDeDados.Equals(BancoDeDados.PostgreSQL)) montarStringDeConexao = $@"User ID={stringDeConexao.Usuario};Password={stringDeConexao.Senha};Host={stringDeConexao.IpLocal};Port=5432;Database={stringDeConexao.NomeDoBanco};Pooling=true;";
+            if (stringDeConexao.BancoDeDados.Equals(BancoDeDados.MySQL)) montarStringDeConexao = $@"Server={stringDeConexao.IpLocal};Port={stringDeConexao.Porta};Database={stringDeConexao.NomeDoBanco};Uid={stringDeConexao.Usuario};Pwd={stringDeConexao.Senha};";
+            if (stringDeConexao.BancoDeDados.Equals(BancoDeDados.SQLServer)) montarStringDeConexao = $@"Data Source={stringDeConexao.IpLocal}; Initial Catalog={stringDeConexao.NomeDoBanco}; Integrated Security=SSPI;";
             var ItemAItem = new List<string>
             {
                 stringDeConexao.IpLocal, stringDeConexao.Porta,

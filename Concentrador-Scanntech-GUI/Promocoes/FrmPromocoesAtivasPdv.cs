@@ -21,13 +21,13 @@ namespace Concentrador_Scanntech_GUI.Promocoes
             Load += FrmPromocoesAtivasPdv_Load;
         }
 
-        private async void FrmPromocoesAtivasPdv_Load(object? sender, EventArgs e)
+        private void FrmPromocoesAtivasPdv_Load(object? sender, EventArgs e)
         {
-            var promocoes = await _uow.PromocoesRepository.ObterTodos();
+            var promocoes = _uow.PromocoesRepository.ObterTodos();
 
             gridPromocao.DataSource = promocoes;
-            gridBeneficio.DataSource = await _uow.PromocoesRepository.ArtigosBeneficios();
-            gridCondicao.DataSource = await _uow.PromocoesRepository.ArtigosCondicao();
+            gridBeneficio.DataSource = _uow.PromocoesRepository.ArtigosBeneficios();
+            gridCondicao.DataSource = _uow.PromocoesRepository.ArtigosCondicao();
         }
     }
 }

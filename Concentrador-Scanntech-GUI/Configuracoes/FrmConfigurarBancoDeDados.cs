@@ -29,6 +29,12 @@ namespace Concentrador_Scanntech_GUI.Configuracoes
         {
             try
             {
+                foreach (var item in BancosDisponiveis.ListaDeBancos())
+                {
+                    cmbBanco.Items.Add(item);
+                }
+
+
                 if (Flag == 1)
                 {
                     var itens = StringDeConexao.LerTxt();
@@ -76,6 +82,7 @@ namespace Concentrador_Scanntech_GUI.Configuracoes
             {
 
                 MessageBox.Show($"String de conexão inválida\nEncerrando aplicação", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.Restart();
             }
         }
     }

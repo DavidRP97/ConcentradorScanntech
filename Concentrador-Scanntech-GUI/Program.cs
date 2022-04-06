@@ -32,13 +32,26 @@ namespace Concentrador_Scanntech_GUI
 
             serviceProvider = services.BuildServiceProvider();
 
-            try
+            string? verificarSeExisteStringDeConexao = $"C:\\ConcentradorScanntech\\Conexao\\stringDeConexao.txt";
+
+            if (File.Exists(verificarSeExisteStringDeConexao))
             {
-                DbContextMigration.EfMigration(new AppDbContext());
-                var frm = serviceProvider.GetRequiredService<FrmMain>();
-                Application.Run(frm);
+                try
+                {
+                    DbContextMigration.EfMigration(new AppDbContext());
+                    var frm = serviceProvider.GetRequiredService<FrmMain>();
+                    Application.Run(frm);
+                }
+                catch 
+                {
+                    MessageBox.Show("Banco de dados não configurado ou configurações inválidas\nVerifique as configurações de acesso",
+                    "Erro de conexão", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    var frm = serviceProvider.GetRequiredService<FrmConfigurarBancoDeDados>();
+                    Application.Run(frm);
+                }
             }
-            catch
+            else
             {
                 var frm = serviceProvider.GetRequiredService<FrmConfigurarBancoDeDados>();
                 Application.Run(frm);

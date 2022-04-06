@@ -4,8 +4,9 @@ namespace Concentrador_Scanntech_Repository.Interfaces
 {
     public interface IDefinicoesRepository : IGenericRepository<DefinicoesScanntech>
     {
-        Task<bool> AddOrUpdate(DefinicoesScanntech definicoes);
-        Task<IEnumerable<DefinicoesScanntech>> ObterTodosInclusoUrl();
-        Task<DefinicoesScanntech> ObterDefinicao();
+        bool AddOrUpdate(DefinicoesScanntech definicoes);
+        void DeleteCascade(long id);
+        IEnumerable<DefinicoesScanntech> ObterTodosInclusoUrl();
+        DefinicoesScanntech ObterDefinicao();
     }
 }

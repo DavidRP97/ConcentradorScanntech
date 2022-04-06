@@ -11,7 +11,6 @@ namespace Concentrador_Scanntech_Repository.UoW
         private readonly AppDbContext _context;
         private readonly IMapper _mapper;
         private IDefinicoesRepository definicoesRepository;
-        private IStatusBancoRepository statusBancoRepository;
         private IPromocoesRepository promocoesRepository;
 
         public UnitOfWork(AppDbContext context, IMapper mapper)
@@ -31,19 +30,6 @@ namespace Concentrador_Scanntech_Repository.UoW
                 return definicoesRepository;
             }
         }
-
-        public IStatusBancoRepository StatusBancoRepository
-        {
-            get
-            {
-                if (statusBancoRepository == null)
-                {
-                    statusBancoRepository = new StatusBancoRepository(_context, _mapper);
-                }
-                return statusBancoRepository;
-            }
-        }
-
         public IPromocoesRepository PromocoesRepository
         {
             get

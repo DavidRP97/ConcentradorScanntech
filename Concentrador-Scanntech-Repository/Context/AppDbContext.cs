@@ -1,43 +1,32 @@
 ﻿using Concentrador_Scanntech_Entities.Model.Definicoes;
 using Concentrador_Scanntech_Entities.Model.Promocoes;
+using Concentrador_Scanntech_Entities.Utils;
 using Microsoft.EntityFrameworkCore;
 
 namespace Concentrador_Scanntech_Repository.Context
 {
     public class AppDbContext : DbContext
     {
-        private const string ConnectionStringPath = $"C:\\ConcentradorScanntech\\Conexao\\stringDeConexao.txt";
-        private const string CaminhoItensString = $"C:\\ConcentradorScanntech\\Conexao\\itensString.txt";
-
-        private string ConnectionString()
-        {
-            if (File.Exists(ConnectionStringPath))
-            {
-                var path = File.ReadAllText(ConnectionStringPath);
-
-                return path;
-            }
-            return string.Empty;
-        }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            var linhas = File.ReadAllLines(CaminhoItensString);
-
-            if (linhas[5] == "MySQL") optionsBuilder.UseMySql(ConnectionString(), ServerVersion.AutoDetect(ConnectionString()));
-            else if (linhas[5] == "PostgreSQL") optionsBuilder.UseNpgsql(ConnectionString());
+            switch (StringDeConexao.Banco())
+            {
+                case BancoDeDados.MySQL:
+                    optionsBuilder.UseMySql(StringDeConexao.Gerar(), ServerVersion.AutoDetect(StringDeConexao.Gerar()));
+                    break;
+                case BancoDeDados.PostgreSQL:
+                    optionsBuilder.UseNpgsql(StringDeConexao.Gerar());
+                    break;
+                case BancoDeDados.SQLServer: 
+                    optionsBuilder.UseSqlServer(StringDeConexao.Gerar());
+                    break;
+            }
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-
-            modelBuilder.Entity<Status>().HasData(new Status
-            {
-                StatusId = 1,
-                StatusDoBanco = true
-            });
         }
         public DbSet<DefinicoesScanntech> DefinicoesScanntech { get; set; }
-        public DbSet<Status> StatusDoBanco { get; set; }
         public DbSet<URL> URLs { get; set; }
 
         public DbSet<BeneficioArtigoScanntech> BeneficioArtigoScanntech { get; set; }

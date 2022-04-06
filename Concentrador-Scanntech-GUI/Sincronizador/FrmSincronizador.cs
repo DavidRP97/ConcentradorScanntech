@@ -32,14 +32,14 @@ namespace Concentrador_Scanntech_GUI.Sincronizador
             Load += FrmSincronizador_Load;
         }
 
-        private async void FrmSincronizador_Load(object? sender, EventArgs e)
+        private void FrmSincronizador_Load(object? sender, EventArgs e)
         {
             try
             {
                 timer1.Start();
 
-                var definicao = await _uow.DefinicoesRepository.ObterDefinicao();
-                lblPromocoesAtivas.Text = $"Promoções enviadas ao PDV: {await _uow.PromocoesRepository.ContarPromocoes()}";
+                var definicao = _uow.DefinicoesRepository.ObterDefinicao();
+                lblPromocoesAtivas.Text = $"Promoções enviadas ao PDV: {_uow.PromocoesRepository.ContarPromocoes()}";
                 if (definicao != null)
                 {
                     SincronizacaoPromocoes = definicao.SincronizacaoPromocoes;
@@ -54,18 +54,18 @@ namespace Concentrador_Scanntech_GUI.Sincronizador
             catch (Exception)
             {
 
-                throw;
+                MessageBox.Show("Falha ao carregar definições\nReiniciando Aplicação", "Falha", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private async void timer1_Tick(object sender, EventArgs e)
+        private void timer1_Tick(object sender, EventArgs e)
         {
 
             ContarSegundos++;
 
             if (ContarSegundos == 15)
             {
-                lblPromocoesAtivas.Text = $"Promoções enviadas ao PDV: {await _uow.PromocoesRepository.ContarPromocoes()}";
+                lblPromocoesAtivas.Text = $"Promoções enviadas ao PDV: {_uow.PromocoesRepository.ContarPromocoes()}";
                 ContarSegundos = 0;
             }
 
@@ -80,16 +80,6 @@ namespace Concentrador_Scanntech_GUI.Sincronizador
                 lblMinutosPromocoes.Text = (Convert.ToInt32(lblMinutosPromocoes.Text) - 1).ToString();
                 PrimeiroLoad = false;
             }
-            if (lblSegundosPromocoes.Text == "0")
-            {
-                lblSegundosPromocoes.Text = "59";
-                lblMinutosPromocoes.Text = (Convert.ToInt32(lblMinutosPromocoes.Text) - 1).ToString();
-            }
-            if (lblSegundosVendas.Text == "0")
-            {
-                lblSegundosVendas.Text = "59";
-                lblMinutosVendas.Text = (Convert.ToInt32(lblMinutosVendas.Text) - 1).ToString();
-            }
             if (lblSegundosVendas.Text == "0" && lblMinutosVendas.Text == "0")
             {
                 BaixaVendasDoPdv();
@@ -100,8 +90,17 @@ namespace Concentrador_Scanntech_GUI.Sincronizador
             {
                 BaixarPromocoesScanntech();
                 ReiniciarCronometroPromocoes();
-
             }
+            if (lblSegundosPromocoes.Text == "0")
+            {
+                lblSegundosPromocoes.Text = "59";
+                lblMinutosPromocoes.Text = (Convert.ToInt32(lblMinutosPromocoes.Text) - 1).ToString();
+            }
+            if (lblSegundosVendas.Text == "0")
+            {
+                lblSegundosVendas.Text = "59";
+                lblMinutosVendas.Text = (Convert.ToInt32(lblMinutosVendas.Text) - 1).ToString();
+            }            
         }
 
 
@@ -150,26 +149,26 @@ namespace Concentrador_Scanntech_GUI.Sincronizador
         {
             lblStatus.Text = Status.BuscandoVendasPdv;
         }
-        private async Task SalvarVendasNoBanco(IEnumerable<ResultDto> result)
+        private void SalvarPromocoes(IEnumerable<ResultDto> result)
         {
             try
             {
-                var promocoes = await _uow.PromocoesRepository.ObterTodos();
+                var promocoes = _uow.PromocoesRepository.ObterTodos();
 
                 if (result != null)
                 {
                     foreach (var item in result)
                     {
-                        var produtoExiste = await _uow.PromocoesRepository.ObterPorApiID(item.ApiId);
+                        var produtoExiste = _uow.PromocoesRepository.ObterPorApiID(item.ApiId);
 
-                        if (produtoExiste == null) await _uow.PromocoesRepository.SalvarPromocao(item);
+                        if (produtoExiste == null) _uow.PromocoesRepository.SalvarPromocao(item);
                     }
                 }
                 else
                 {
                     foreach (var item in promocoes)
                     {
-                        await _uow.PromocoesRepository.DeleteCascade(item.PromocaoId);
+                        _uow.PromocoesRepository.DeleteCascade(item.PromocaoId);
                     }
                 }
 
@@ -179,14 +178,14 @@ namespace Concentrador_Scanntech_GUI.Sincronizador
                     {
                         var promocaoRejeitada = result.FirstOrDefault(x => x.ApiId == item.ApiId);
 
-                        if (promocaoRejeitada == null) await _uow.PromocoesRepository.DeleteCascade(item.PromocaoId);
+                        if (promocaoRejeitada == null) _uow.PromocoesRepository.DeleteCascade(item.PromocaoId);
                     }
                 }
             }
             catch (Exception)
             {
 
-                throw;
+                MessageBox.Show("Falha ao salvar promoções Scanntech\nReiniciando Aplicação", "Falha", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void ReiniciarCronometroPromocoes()
@@ -202,24 +201,27 @@ namespace Concentrador_Scanntech_GUI.Sincronizador
             lblSegundosVendas.Text = "59";
             lblMinutosVendas.Text = (Convert.ToInt32(lblMinutosVendas.Text) - 1).ToString();
         }
-        private async Task BaixarPromocoesScanntech()
+        private void BaixarPromocoesScanntech()
         {
             try
             {
-                var definicao = await _uow.DefinicoesRepository.ObterDefinicao();
+                var definicao = _uow.DefinicoesRepository.ObterDefinicao();
 
                 foreach (var item in definicao.uRLs)
                 {
-                    var response = await _obterPromocoes.ObterPromocoesScanntech(definicao, item.UrlConnection);
+                    var response = _obterPromocoes.ObterPromocoesScanntech(definicao, item.UrlConnection);
 
-                    await SalvarVendasNoBanco(response.Resultados);
-                    break;
+                    if(response.Item2 == true)
+                    {
+                        SalvarPromocoes(response.Item1.Resultados);
+                        break;
+                    }
                 }
             }
             catch (Exception)
             {
 
-                throw;
+                MessageBox.Show("Falha ao baixar promoções Scanntech\nReiniciando Aplicação", "Falha", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

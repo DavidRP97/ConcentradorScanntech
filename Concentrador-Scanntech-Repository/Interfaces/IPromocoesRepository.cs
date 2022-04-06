@@ -5,12 +5,12 @@ namespace Concentrador_Scanntech_Repository.Interfaces
 {
     public interface IPromocoesRepository : IGenericRepository<PromocaoScanntech>
     {
-        Task<bool> DeleteCascade(long id);
-        Task SalvarPromocao(ResultDto result);
-        Task<int> ContarPromocoes();
-        Task<PromocaoScanntech> ObterPorApiID(long id);
-        Task<IEnumerable<PromocaoScanntech>> ObterPromocoesComInclude();
-        Task<IEnumerable<BeneficioArtigoScanntech>> ArtigosBeneficios();
-        Task<IEnumerable<CondicaoArtigoScanntech>> ArtigosCondicao();
+        bool DeleteCascade(long id);
+        void SalvarPromocao(ResultDto result);
+        int ContarPromocoes();
+        PromocaoScanntech ObterPorApiID(long id);
+        IEnumerable<PromocaoScanntech> ObterPromocoesComInclude();
+        IEnumerable<BeneficioArtigoScanntech> ArtigosBeneficios();
+        IEnumerable<CondicaoArtigoScanntech> ArtigosCondicao();
     }
 }

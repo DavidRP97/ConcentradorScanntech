@@ -2,11 +2,11 @@
 {
     public interface IGenericRepository<TEntity> where TEntity : class 
     {
-        Task<IEnumerable<TEntity>> ObterTodos();
-        Task<TEntity> ObterPorId(long id);
-        Task Inserir(dynamic entity);
-        Task Atualizar(dynamic entity);
-        Task Save();
-        Task<bool> Excluir(long id);
+        IEnumerable<TEntity> ObterTodos();
+        TEntity ObterPorId(long id);
+        void Inserir(dynamic entity);
+        void Atualizar(dynamic entity);
+        void Save();
+        bool Excluir(long id);
     }
 }

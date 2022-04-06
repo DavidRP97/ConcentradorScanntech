@@ -16,42 +16,50 @@ namespace Concentrador_Scanntech_Repository.Repository
             _mapper = mapper;
         }
 
-        public async Task<bool> AddOrUpdate(DefinicoesScanntech definicoes)
+        public bool AddOrUpdate(DefinicoesScanntech definicoes)
         {
-            var definicaoCadastrada = await _context.DefinicoesScanntech.ToListAsync();
+            var definicaoCadastrada = _context.DefinicoesScanntech.ToList();
 
-            if(definicaoCadastrada.Count() > 0)
+            if (definicaoCadastrada.Count() > 0)
             {
                 var pegarDefinicao = definicaoCadastrada.FirstOrDefault();
 
-                await Excluir(pegarDefinicao.Id);
+                DeleteCascade(pegarDefinicao.Id);
 
-                var definir = await _context.DefinicoesScanntech.AddAsync(definicoes);
-                await Save();
-                if(definir != null) { return true; }
+                var definir = _context.DefinicoesScanntech.Add(definicoes);
+                Save();
+                if (definir != null) { return true; }
 
                 return false;
             }
             else
             {
-                var salvo = await _context.DefinicoesScanntech.AddAsync(definicoes);
-                await Save();
+                var salvo = _context.DefinicoesScanntech.Add(definicoes);
+                Save();
                 if (salvo != null) { return true; }
                 return false;
-                
+
             }
         }
 
-        public async Task<DefinicoesScanntech> ObterDefinicao()
+        public void DeleteCascade(long id)
         {
-            var definicoes = await _context.DefinicoesScanntech.Include(x => x.uRLs).FirstOrDefaultAsync();
+            var entyty = _context.DefinicoesScanntech.Include(x => x.uRLs).Where(x => x.Id == id).FirstOrDefault();
+
+            _context.URLs.RemoveRange(entyty.uRLs);
+            _context.DefinicoesScanntech.Remove(entyty);
+        }
+
+        public DefinicoesScanntech ObterDefinicao()
+        {
+            var definicoes = _context.DefinicoesScanntech.Include(x => x.uRLs).FirstOrDefault();
 
             return definicoes;
         }
 
-        public async Task<IEnumerable<DefinicoesScanntech>> ObterTodosInclusoUrl()
+        public IEnumerable<DefinicoesScanntech> ObterTodosInclusoUrl()
         {
-            var definicoes = await _context.DefinicoesScanntech.Include(x => x.uRLs).ToListAsync();
+            var definicoes = _context.DefinicoesScanntech.Include(x => x.uRLs).ToList();
 
             return definicoes;
         }

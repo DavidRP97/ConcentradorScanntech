@@ -40,11 +40,11 @@ namespace Concentrador_Scanntech_GUI.Configuracoes
             }
         }
 
-        private async void CarregarTextBox()
+        private void CarregarTextBox()
         {
             try
             {
-                var definicoes = await _uow.DefinicoesRepository.ObterTodosInclusoUrl();
+                var definicoes = _uow.DefinicoesRepository.ObterTodosInclusoUrl();
 
                 if (definicoes.Count() > 0)
                 {
@@ -94,7 +94,7 @@ namespace Concentrador_Scanntech_GUI.Configuracoes
             }
         }
 
-        private async void salvarToolStripMenuItem_Click(object sender, EventArgs e)
+        private void salvarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
@@ -120,7 +120,7 @@ namespace Concentrador_Scanntech_GUI.Configuracoes
 
                 definicao.uRLs = urls;
 
-                var salvo = await _uow.DefinicoesRepository.AddOrUpdate(definicao);
+                var salvo = _uow.DefinicoesRepository.AddOrUpdate(definicao);
 
                 if (salvo == false)
                 {

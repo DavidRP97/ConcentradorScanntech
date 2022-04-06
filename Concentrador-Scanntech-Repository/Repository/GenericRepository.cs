@@ -16,47 +16,47 @@ namespace Concentrador_Scanntech_Repository.Repository
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
 
-        public async Task Atualizar(dynamic entity)
+        public void Atualizar(dynamic entity)
         {
             var tEntity = _mapper.Map<TEntity>(entity);
             var update = _context.Set<TEntity>().Update(tEntity);
             update.State = EntityState.Modified;
-            await Save();            
+            Save();
         }
 
-        public async Task<bool> Excluir(long id)
+        public bool Excluir(long id)
         {
-            var entity = await ObterPorId(id);
+            var entity = ObterPorId(id);
             if (entity == null) return false;
             _context.Set<TEntity>().Remove(entity);
-            await Save();
+            Save();
             return true;
         }
 
-        public async Task Inserir(dynamic entity)
+        public void Inserir(dynamic entity)
         {
             TEntity tEntity = _mapper.Map<TEntity>(entity);
-            await _context.AddAsync(tEntity);
-            await Save();
+            _context.Add(tEntity);
+            Save();
         }
 
-        public async Task<TEntity> ObterPorId(long id)
+        public TEntity ObterPorId(long id)
         {
-            var entity = await _context.Set<TEntity>().FindAsync(id);
+            var entity = _context.Set<TEntity>().Find(id);
 
             return _mapper.Map<TEntity>(entity);
         }
 
-        public async Task<IEnumerable<TEntity>> ObterTodos()
+        public IEnumerable<TEntity> ObterTodos()
         {
-            List<TEntity> entities = await _context.Set<TEntity>().AsNoTracking().ToListAsync();
+            List<TEntity> entities = _context.Set<TEntity>().AsNoTracking().ToList();
 
             return entities;
         }
 
-        public async Task Save()
+        public void Save()
         {
-            await _context.SaveChangesAsync();
+            _context.SaveChanges();
         }
     }
 }
